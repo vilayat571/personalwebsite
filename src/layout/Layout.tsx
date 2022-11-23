@@ -6,7 +6,7 @@ interface ILayout{
 
 export default function Layout(props:ILayout) {
   return (
-    <div className='border-2 border-red-500'>
+    <div className='m-4'>
       {props.children}
     </div>
   )
