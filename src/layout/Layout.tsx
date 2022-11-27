@@ -1,13 +1,17 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
+import Navbar from "../components/Navbar";
 
-interface ILayout{
-    children:ReactNode
+interface ILayout {
+  children: ReactNode;
 }
 
-export default function Layout(props:ILayout) {
+export default function Layout(props: ILayout) {
   return (
-    <div className='m-4'>
-      {props.children}
+    <div className="py-16 flex flex-col items-center">
+      <Navbar />
+      <div className=" w-4/5 pt-44 flex justify-center items-center">
+        {props.children}
+      </div>
     </div>
-  )
+  );
 }
