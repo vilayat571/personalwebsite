@@ -6,4 +6,4 @@ export default function Logo() {
       <Link to={"/"}>Vilayat Safarov</Link>
     </div>
   );
-};
+}
