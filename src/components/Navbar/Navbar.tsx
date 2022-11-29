@@ -2,14 +2,14 @@ import { memo, useState } from "react";
 import Nav from "./Nav";
 import Sidebar from "./Sidebar";
 
-interface Navbar {
+interface INavbar {
   changeMode(): void;
 }
 
 function Navbar() {
   const [mode, setMode] = useState<boolean>(false);
 
-  const changeMode: Navbar["changeMode"] = () => {
+  const changeMode: INavbar["changeMode"] = () => {
     setMode(!mode);
   };
 

@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Tolink from "../../atoms/Main/Tolink";
 
 export default function Brief() {
   return (
@@ -31,20 +30,8 @@ export default function Brief() {
         flex justify-start items-start
         "
         >
-          <Link
-            to={"/blogs"}
-            className="flex text-white justify-between items-center"
-          >
-            <span className="mr-6 text-xl">Learn more about me</span>
-            <button
-              className="transition-all transform text-white
-w-14 h-14 flex justify-center items-center border-2 p-1 hover:border-white rounded-full border-[#494a51] "
-            >
-              <span style={{ rotate: "270deg" }}>
-                <ExpandMoreIcon fontSize="medium" />
-              </span>
-            </button>
-          </Link>
+          <Tolink text="Learn more about me" />
+
         </p>
       </div>
     </div>

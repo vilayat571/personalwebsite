@@ -1,12 +1,13 @@
-import Logo from "../atoms/Navbar/Logo";
-import Navitems from "../atoms/Navbar/Navitems";
+import Logo from "../../atoms/Navbar/Logo";
+import Navitems from "../../atoms/Navbar/Navitems";
 
-interface Nav {
+
+interface INav {
   mode: boolean;
   changeMode(): void;
 }
 
-export default function Nav(props: Nav) {
+export default function Nav(props: INav) {
   return (
     <div className="w-11/12 flex justify-between items-center">
       <Logo />

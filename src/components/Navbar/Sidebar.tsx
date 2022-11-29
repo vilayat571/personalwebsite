@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-import Navlink from "../atoms/Navbar/Navlink";
+import Navlink from "../../atoms/Navbar/Navlink";
 
-interface Sidebar {
+interface ISidebar {
   mode: boolean;
 }
 
-export default function Sidebar(props: Sidebar) {
+export default function Sidebar(props: ISidebar) {
   return (
     <div
       className={`text-[#a9adc1] flex flex-col w-full mt-10 ${

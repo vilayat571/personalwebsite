@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
+
 
 interface ILayout {
   children: ReactNode;
