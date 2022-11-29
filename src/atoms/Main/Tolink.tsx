@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface ITolink {
-  text: string;
+  text: string
 }
 
 export default function Tolink(props: ITolink) {
