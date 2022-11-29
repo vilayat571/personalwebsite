@@ -5,8 +5,8 @@ Responsive project road map
  b) Footer -
 
 2) Main page
- a) Header -
- b) Brief -
+ a) Header +
+ b) Brief +
  c) Promotaion -
  d) Recomendation -
 
