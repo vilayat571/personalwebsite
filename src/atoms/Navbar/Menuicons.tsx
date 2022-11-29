@@ -1,12 +1,12 @@
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 
-interface Menuicons {
+interface IMenuicons {
   mode: boolean;
   changeMode(): void;
 }
 
-export default function Menuicons(props: Menuicons) {
+export default function Menuicons(props: IMenuicons) {
   return (
     <button
       onClick={() => props.changeMode()}
