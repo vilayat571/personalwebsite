@@ -1,2 +1,13 @@
 Responsive project road map
-+ Navbar
+
+1) Layout page
+ a) Navbar +
+ b) Footer -
+
+2) Main page
+ a) Header -
+ b) Brief -
+ c) Promotaion -
+ d) Recomendation -
+
+
