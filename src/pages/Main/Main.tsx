@@ -8,6 +8,7 @@ export default function Main() {
       <div className="flex flex-col w-full h-auto">
         <Header />
         <Brief />
+        
       </div>
     </Layout>
   );
