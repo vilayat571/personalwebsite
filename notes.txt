@@ -7,7 +7,16 @@ Responsive project road map
 2) Main page
  a) Header +
  b) Brief +
- c) Promotaion -
+ c) Promotaion +
  d) Recomendation -
 
+
+3) Pages
+Main -
+Blogs -
+Watchlist -
+About -
+Sign in -
+Sign up -
+404 +
 

@@ -1,7 +1,9 @@
+import Maindiv from "../../components/Notfound/Maindiv";
+
 function Notfound() {
   return (
-    <div>
-      <h1>Notfound</h1>
+    <div className="w-full h-screen flex justify-center items-center">
+      <Maindiv />
     </div>
   );
 }

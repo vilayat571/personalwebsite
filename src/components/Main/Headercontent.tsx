@@ -11,7 +11,7 @@ export default function Headercontent() {
           "Helping people make the world a better place through quality software."
         }
         stil={
-          "text-white ] sm:w-full md:w-full lg:w-4/5 xl:w-4/5 sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
+          "text-white sm:w-full md:w-full lg:w-4/5 xl:w-4/5 sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
         }
       />
       <Rlink />
