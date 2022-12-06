@@ -8,7 +8,7 @@ export default function Headercontent() {
       className="col-span-1 flex flex-col md:items-center sm:items-center lg:items-start xl:items-start" >
       <Pelement
         text={
-          "Helping people make the world a better place through quality software."
+          "Learning by helping people make the world a better place."
         }
         stil={
           "text-white sm:w-full md:w-full lg:w-4/5 xl:w-4/5 sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "

@@ -16,7 +16,7 @@ export default function Layout(props: ILayout) {
         {props.children}
       </div>
       <Diver />
-      <div className=" w-full pt-48 mb-40 border-t border-[#4b4c53] flex justify-center items-center">
+      <div className=" w-full pt-32 mb-20 border-t border-[#4b4c53] flex justify-center items-center">
         <Footer />
       </div>
       <Footertext />

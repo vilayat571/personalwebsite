@@ -8,16 +8,16 @@ export default function Promotext() {
   sm:items-center md:items-center xl:items-start"
     >
       <Promop
-        text={"Educational blog"}
+        text={"Useful blogs"}
         stil={
-          " text-white text-3xl mb-8 xl:mt-0 lg:mt-0 sm:mt-12 md:mt-12 xl:w-4/5 lg:w-4/5 md:w-4/5 sm:w-4/5"
+          " text-white text-3xl mb-4 xl:mt-0 lg:mt-0 sm:mt-2 md:mt-2 xl:w-4/5 lg:w-4/5 md:w-full sm:w-full"
         }
       />
       <Promop
         text={
-          "There you'll find blogs about JavaScript, TypeScript, React, Testing, your career, and and more."
+          "Professional blogs based on more than 5 programming languages and more than 20 categories. Most importantly your career related to JavaScript, TypeScript, React, HTML, CSS and many frameworks etc. you can find blogs about"
         }
-        stil={" text-[#a9adc1] text-lg  xl:w-4/5 lg:w-4/5 md:w-4/5 sm:w-4/5 "}
+        stil={" text-[#a9adc1] text-lg  xl:w-4/5 lg:w-4/5 md:w-full sm:w-full "}
       />
       <Redirectblog />
     </div>
