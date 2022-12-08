@@ -1,7 +1,6 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
+
 export default function Col1() {
   return (
     <div className=" col-span-1 ">
@@ -14,8 +13,7 @@ export default function Col1() {
         for making our world better
       </p>
       <p className="text-white flex  mt-3">
-       
-      <a
+        <a
           className="mr-2 text-3xl "
           href="http://"
           target="_blank"
@@ -32,7 +30,6 @@ export default function Col1() {
         >
           <LinkedInIcon fontSize="inherit" />
         </a>
-       
       </p>
     </div>
   );
