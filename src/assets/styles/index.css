@@ -5,12 +5,13 @@
 @font-face {
   font-family: "Poppins";
   src: local("Poppins"), url("./Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 100;
 }
 
 @font-face {
   font-family: "Poppins";
   src: local("Poppins"), url("./Poppins/Poppins-Medium.ttf") format("truetype");
-  font-weight: 200;
+  font-weight: 100;
 }
 
 * {
@@ -18,13 +19,14 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Poppins";
+  font-weight: 100;
 }
 
-body{
+body {
   overflow-x: hidden;
   background-color: #1f2028;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }

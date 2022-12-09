@@ -7,8 +7,9 @@ export default function Navnavitems() {
         <Link to={"/blogs"}>Blogs</Link>
         <Link to={"/watchlist"}>Watchlist</Link>
         <Link to={"/about"}>About</Link>
-        <Link to={"/about"}>Sign in</Link>
-        <Link to={"/about"}>Sign up</Link>
+        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/signin"}>Sign in</Link>
+        <Link to={"/signup"}>Sign up</Link>
       </div>
   )
 }
