@@ -4,7 +4,13 @@ export default function Contentofme() {
   return (
     <>
       <Pelement
-        text={"Hi, I'm Vilayat Safarov. I'm a developer."}
+        text={"Hi, I'm Vilayat Safarov. "}
+        stil={
+          "text-white lg:w-[85%] sm:w-full md:w-full xl:w-[85%] sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
+        }
+      />
+       <Pelement
+        text={"I'm a software developer."}
         stil={
           "text-white lg:w-[85%] sm:w-full md:w-full xl:w-[85%] sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
         }
