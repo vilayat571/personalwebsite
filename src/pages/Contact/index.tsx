@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Layout from "../../layout/Layout";
+import { askQuestion } from "../../redux/reducers/contactReducer";
+import { useAppDispatch } from "../../redux/store";
 
-interface IContact {
+export interface IContact {
   name: string;
   subject: string;
   email: string;
@@ -10,6 +12,10 @@ interface IContact {
 
 interface IFunc {
   (e: React.ChangeEvent<HTMLInputElement>): void;
+}
+
+interface ISubmit {
+  (e: React.FormEvent<HTMLFormElement>): void;
 }
 
 export default function Contact() {
@@ -22,15 +28,30 @@ export default function Contact() {
 
   const handleChange: IFunc = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
-    console.log(form);
   };
-  /* Basim getdi qaqa)) gozle gorek */
+
+  const dispatch = useAppDispatch();
+
+  const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(askQuestion(form));
+    setForm({
+      name: "",
+      subject: "",
+      email: "",
+      message: "",
+    });
+  };
+
   return (
     <Layout>
       <div className="w-full h-auto ">
-        <form className="flex items-center gap-6 flex-col ">
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className="flex items-center gap-6 flex-col "
+        >
           <input
-            className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+            className=" outline-none focus:bg-transparent text-white font-thin bg-transparent
              border-b  h-10 rounded-sm w-1/2 indent-3"
             onChange={(e) => handleChange(e)}
             id={"name"}
@@ -40,7 +61,7 @@ export default function Contact() {
             required={true}
           />
           <input
-            className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+            className=" outline-none focus:bg-transparent text-white font-thin bg-transparent
              border-b  h-10 rounded-sm w-1/2 indent-3"
             onChange={(e) => handleChange(e)}
             id={"email"}
@@ -50,22 +71,22 @@ export default function Contact() {
             required={true}
           />
           <input
-            className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+            className=" outline-none focus:bg-transparent text-white font-thin bg-transparent
              border-b  h-10 rounded-sm w-1/2 indent-3"
             onChange={(e) => handleChange(e)}
             id={"subject"}
             value={form.subject}
-            placeholder="Subject"
+            placeholder="Title"
             type="text"
             required={true}
           />
           <input
-            className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+            className=" outline-none focus:bg-transparent text-white font-thin bg-transparent
              border-b  h-10 rounded-sm w-1/2 indent-3"
             onChange={(e) => handleChange(e)}
             id={"message"}
             value={form.message}
-            placeholder="Message"
+            placeholder="Question"
             type="text"
             required={true}
           />
@@ -73,7 +94,7 @@ export default function Contact() {
             className="border-none px-12 rounded-sm py-3
            bg-[#2e3039] text-[#fff] mt-4"
           >
-            Send message
+            Ask a question
           </button>
         </form>
       </div>
