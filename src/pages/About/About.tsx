@@ -18,7 +18,7 @@ export default function About() {
           content="Vilayat Safarov, Vilayet Safarov, Software Developer"
         />
       </Helmet>
-      <div className="h-auto flex flex-col w-full">
+      <div className="h-auto flex flex-col mt-10 w-full">
         <Headofme />
         <Bornme />
         <Footme />

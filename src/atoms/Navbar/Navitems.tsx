@@ -7,7 +7,6 @@ interface NavItems {
 }
 
 export default function Navitems(props: NavItems) {
-
   return (
     <>
       <Navnavitems />

@@ -4,19 +4,24 @@ import Tolink from "../../atoms/Main/Tolink";
 
 export default function Headercontent() {
   return (
-    <div className="col-span-1 flex flex-col md:items-center sm:items-center lg:items-start xl:items-start">
-      <Pelement
-        text={
-          "Development by helping people make the world a better place."
-        }
+   <div className="col-span-1  flex items-center">
+     <div className="flex flex-col items-start">
+       <Pelement
+        text={"Helping people every day to make the world a better place."}
         stil={
-          "text-white sm:w-full md:w-full lg:w-3/4 xl:w-4/5 sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
+          "text-white lg:w-9/12 sm:w-full md:w-full xl:w-9/12 text-[32px] tracking-[0.8px] "
         }
       />
-      <Rlink />
-      <div className="flex items-start w-full">
+      <Pelement
+        text={"Learning and improving skills with the best software." }
+        stil={
+          "text-[#a9adc1] lg:w-10/12 sm:w-full md:w-full xl:w-10/12 mt-2 text-[32px] tracking-[0.8px] "
+        }
+      />
+      <div className="flex items-start mt-4 w-full">
         <Tolink text={"See more"} />
       </div>
     </div>
+   </div>
   );
 }

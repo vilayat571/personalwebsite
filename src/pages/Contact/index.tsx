@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "../../layout/Layout";
 import { askQuestion } from "../../redux/reducers/contactReducer";
 import { useAppDispatch } from "../../redux/store";
@@ -45,6 +46,9 @@ export default function Contact() {
 
   return (
     <Layout>
+       <Helmet>
+        <title>Ask question from the Vilayat Safarov</title>
+      </Helmet>
       <div className="w-full h-auto ">
         <form
           onSubmit={(e) => handleSubmit(e)}

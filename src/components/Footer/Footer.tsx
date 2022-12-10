@@ -14,7 +14,7 @@ export default function Footer() {
       md:items-start sm:items-start text-left lg:items-center xl:items-center"
       >
         <p className="flex flex-col gap-1 text-[#a9adc1]">
-          <h3 className="text-white mb-2 tracking-[0.3px]">Main pages</h3>
+          <span className="text-white mb-2 tracking-[0.3px]">Main pages</span>
           <Link to={"/"}>Home</Link>
           <Link to={"/"}>Blogs</Link>
           <Link to={"/"}>Watchlist</Link>
@@ -29,7 +29,7 @@ export default function Footer() {
        xl:items-end md:items-start sm:items-start"
       >
         <p className=" flex flex-col gap-1 text-[#a9adc1]">
-          <h3 className="text-white mb-2 tracking-[0.3px]">General</h3>
+          <span className="text-white mb-2 tracking-[0.3px]">General</span>
           <Link to={"/"}>My mission</Link>
           <Link to={"/"}>Privacy Police</Link>
           <Link to={"/"}>Terms of use</Link>
