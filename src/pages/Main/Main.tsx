@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 export default function Main() {
   return (
     <Layout>
-       <Helmet>
+      <Helmet>
         <title>Vilayat Safarov</title>
         <meta
           name="description"
