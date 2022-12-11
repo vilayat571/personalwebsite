@@ -3,6 +3,7 @@ import Headofme from "../../parts/About/Headofme";
 import Bornme from "../../parts/About/Bornme";
 import Footme from "../../parts/About/Footme";
 import { Helmet } from "react-helmet-async";
+import Recomendation from "../../parts/Main/Recomendation";
 
 export default function About() {
   return (
@@ -18,13 +19,11 @@ export default function About() {
           content="Vilayat Safarov, Vilayet Safarov, Software Developer"
         />
       </Helmet>
-      <div className="h-auto flex flex-col mt-10 w-full">
+      <div className="h-auto border flex flex-col mt-10 w-full">
         <Headofme />
         <Bornme />
         <Footme />
-        <div className="h-40 text-white mt-8 border">
-          <h1>Recomendation Section</h1>
-        </div>
+        <Recomendation />
       </div>
     </Layout>
   );

@@ -31,7 +31,7 @@ const blogsReducer = createSlice({
     builder.addCase(fetchBlogs.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.blogs = action.payload;
+      state.blogs = action.payload.results;
     });
     builder.addCase(fetchBlogs.rejected, (state, action) => {
       state.loading = false;
