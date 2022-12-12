@@ -4,7 +4,7 @@ import Redirectblog from "./Redirectblog";
 export default function Promotext() {
   return (
     <div
-      className="cols-span-2 h-full flex flex-col lg:items-start 
+      className="h-96  flex flex-col lg:items-start 
   sm:items-center md:items-center xl:items-start"
     >
       <Promop

@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import allBlogsReducer from "./reducers/allBlogsReducer";
+import allcategoriesReducer from "./reducers/allcategoriesReducer";
 import blogsReducer from "./reducers/blogsReducer";
 import contactReducer from "./reducers/contactReducer";
 import sigininReducer from "./reducers/sigininReducer";
@@ -8,7 +10,9 @@ export const store = configureStore({
   reducer: {
     contactReducer: contactReducer,
     signinReducer: sigininReducer,
-    blogsReducer:blogsReducer
+    blogsReducer:blogsReducer,
+    allBlogsReducer:allBlogsReducer,
+    allcategoriesReducer:allcategoriesReducer
   },
 });
 
