@@ -31,11 +31,11 @@ export default function Blogs() {
     (state: RootState) => state.allcategoriesReducer.categories
   );
 
-const [limit,setLimit]=useState<number>(24);
+const [limit,setLimit]=useState<number>(12);
 
 const handleLimit:IBlogs['handleLimit']=()=>{
   setLimit(limit+12);
-  console.log(limit)
+ // window.scrollTo(0,document.body.scrollHeight-600)
 }
 
   const handleChange: IBlogs["handleChange"] = (
@@ -43,17 +43,16 @@ const handleLimit:IBlogs['handleLimit']=()=>{
   ) => {
     e.preventDefault();
     setQuery(e.target.value);
-    //filteredData && window.scrollTo(0,600);
   };
 
   const handleClick: IBlogs["handleClick"] = (id) => {
-    dispatch(getBlogs(id));
+    dispatch(getBlogs({id:id,limit:limit}));
   };
 
   useEffect(() => {
-    dispatch(getBlogs(-1));
+    dispatch(getBlogs({id:-1,limit:limit}));
     dispatch(getCategories());
-  }, []);
+  }, [limit]);
 
   const filteredData =
     blogs &&
@@ -133,12 +132,12 @@ const handleLimit:IBlogs['handleLimit']=()=>{
             </h1>
           )}
         </div>
-        <div className=" flex justify-start items-center text-white  w-full h-10 ">
+        <div className="py-8 flex justify-center items-center text-white  w-full h-10 ">
           <button
           onClick={()=>handleLimit()} 
-          className="border border-gray-500 text-gray-300 px-8 py-3"
+          className="border border-gray-500 rounded-full text-gray-300 px-16 py-4"
         >
-          Load more
+          Load more + (12)
           </button>
         </div>
       </div>

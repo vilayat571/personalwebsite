@@ -4,7 +4,7 @@ interface IInitialState {
   error: string | null | undefined;
   blogs: any;
   loading: boolean;
-};
+}
 
 const initialState: IInitialState = {
   loading: false,

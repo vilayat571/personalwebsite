@@ -12,9 +12,10 @@ const initialState: IInitialState = {
   error: null,
 };
 
+
 export const getBlogs = createAsyncThunk(
-  "/fetchAllBlogs",
-  async (id: number) => {
+  "/fetchAllBlogs", async (data:{id:number,limit:number}) => {
+    const {id,limit}=data;
     if (id > 0) {
       const url2 = `https://api.vilayatsafarov.com/api/v1/blog/?&category=${
         id && id
@@ -23,7 +24,8 @@ export const getBlogs = createAsyncThunk(
       const data = await res.json();
       return data;
     } else {
-      const url1 = "https://api.vilayatsafarov.com/api/v1/blog/";
+
+      const url1 = `https://api.vilayatsafarov.com/api/v1/blog/?limit=${limit}`;
       const res = await fetch(url1);
       const data = await res.json();
       return data;
