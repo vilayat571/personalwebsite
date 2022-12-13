@@ -9,7 +9,7 @@ export interface Iblog {
   description: string;
   image: string;
   title: string;
-  id:number;
+  id: number;
 }
 
 export default function Recomendedblogs() {
@@ -24,7 +24,7 @@ export default function Recomendedblogs() {
   return (
     <div className="h-auto w-full grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-4">
       {blogs
-        ? blogs.slice(0,3).map((blog: Iblog, index: number) => {
+        ? blogs.slice(0, 3).map((blog: Iblog, index: number) => {
             return (
               <Link to={`/blogs/${blog.id}`} className="" key={index}>
                 <img
