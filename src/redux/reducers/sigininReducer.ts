@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 import { ISignin } from "../../pages/Signin";
 
 interface IinitialState {
@@ -36,10 +35,7 @@ const signinReducer = createSlice({
       state.error = null;
       const access = action.payload.access;
       localStorage.setItem("jwt", access);
-
-      
-
-      console.log("Token", localStorage.getItem("jwt"));
+      localStorage.setItem("userDetails", JSON.stringify(action.payload));
     });
   },
 });

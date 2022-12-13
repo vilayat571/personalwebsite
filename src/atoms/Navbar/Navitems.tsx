@@ -1,3 +1,4 @@
+import React from "react";
 import Menuicons from "./Menuicons";
 import Navnavitems from "./Navnavitems";
 
@@ -6,11 +7,11 @@ interface NavItems {
   mode: boolean;
 }
 
-export default function Navitems(props: NavItems) {
+export default React.memo(function Navitems(props: NavItems) {
   return (
     <>
       <Navnavitems />
       <Menuicons mode={props.mode} changeMode={props.changeMode} />
     </>
   );
-}
+});

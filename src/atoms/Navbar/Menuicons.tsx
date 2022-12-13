@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 interface IMenuicons {
   mode: boolean;
   changeMode(): void;
-}
+};
 
 export default function Menuicons(props: IMenuicons) {
   return (

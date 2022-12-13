@@ -4,5 +4,9 @@ interface IPelement {
 }
 
 export default function Pelement(props: IPelement) {
-  return <p style={{lineHeight:"45px"}} className={props.stil}>{props.text}</p>;
+  return (
+    <p style={{ lineHeight: "45px" }} className={props.stil}>
+      {props.text}
+    </p>
+  );
 }

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
+import { addToWisList } from "../../redux/reducers/addtolistReducer";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
@@ -10,7 +11,8 @@ import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
   handleClick(id: number): void;
-  handleLimit():void;
+  handleLimit(): void;
+  addtoWatchlist(id:number):void;
 }
 
 interface ICategory {
@@ -27,38 +29,52 @@ export default function Blogs() {
     (state: RootState) => state.allBlogsReducer.blogs
   );
 
+
   const categories = useAppSelector(
     (state: RootState) => state.allcategoriesReducer.categories
   );
 
-const [limit,setLimit]=useState<number>(12);
+  const [limit, setLimit] = useState<number>(12);
 
-const handleLimit:IBlogs['handleLimit']=()=>{
-  setLimit(limit+12);
- // window.scrollTo(0,document.body.scrollHeight-600)
-}
+  const handleLimit: IBlogs["handleLimit"] = useCallback(() => {
+    setLimit(limit + 12);
+    // window.scrollTo(0,document.body.scrollHeight-600)
+  }, []);
 
-  const handleChange: IBlogs["handleChange"] = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    e.preventDefault();
-    setQuery(e.target.value);
-  };
+  const handleChange: IBlogs["handleChange"] = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.preventDefault();
+      setQuery(e.target.value);
+    },
+    []
+  );
 
-  const handleClick: IBlogs["handleClick"] = (id) => {
-    dispatch(getBlogs({id:id,limit:limit}));
-  };
+  const handleClick: IBlogs["handleClick"] = useCallback((id) => {
+    dispatch(getBlogs({ id: id, limit: limit }));
+  }, []);
 
   useEffect(() => {
-    dispatch(getBlogs({id:-1,limit:limit}));
+    dispatch(getBlogs({ id: -1, limit: limit }));
     dispatch(getCategories());
   }, [limit]);
+
+  const navigate = useNavigate();
 
   const filteredData =
     blogs &&
     blogs.filter((item: Iblog) => {
       return item.title.toLowerCase().indexOf(query.toLocaleLowerCase()) != -1;
     });
+
+
+  const [list,setList]=useState<any>([])
+
+  const addtoWatchlist:IBlogs['addtoWatchlist'] = (id:number) => {
+    setList([...list,id]);
+
+    //dispatch(addToWisList(id));
+    
+  };
 
   return (
     <Layout>
@@ -88,15 +104,13 @@ const handleLimit:IBlogs['handleLimit']=()=>{
             {categories
               ? categories.map((category: ICategory, index: number) => {
                   return (
-                
-                      <button
-                        onClick={() => handleClick(category.id)}
-                        key={index}
-                        className="rounded-full text-center tracking-[0.4px] py-3 px-6 text-sm text-white bg-[#2e3039]"
-                      >
-                        {category.category_name}
-                      </button>
-                  
+                    <button
+                      onClick={() => handleClick(category.id)}
+                      key={index}
+                      className="rounded-full text-center tracking-[0.4px] py-3 px-6 text-sm text-white bg-[#2e3039]"
+                    >
+                      {category.category_name}
+                    </button>
                   );
                 })
               : "Loading.."}
@@ -112,18 +126,31 @@ const handleLimit:IBlogs['handleLimit']=()=>{
           {filteredData.length > 0 ? (
             filteredData.map((blog: Iblog, index: number) => {
               return (
-                <Link to={`/blogs/${blog.id}`} className=" my-6" key={index}>
+                <div
+                 // to={`/blogs/${blog.id}`}
+                  className=" my-6 flex flex-col items-start"
+                  key={index}
+                >
                   <img
                     className="rounded-lg w-[380px] h-[480px]"
                     src={blog.image}
                     alt=""
                   />
+
                   <div
                     style={{ lineHeight: "44px" }}
                     className="line-clamp-2 mt-4 text-2xl text-white "
                     dangerouslySetInnerHTML={{ __html: blog.body }}
                   />
-                </Link>
+                  <div className="w-full flex justify-center items-center">
+                    <button
+                      onClick={() => addtoWatchlist(blog.id)}
+                      className="bg-[#2e3039] text-center mt-4 text-white py-3 px-12"
+                    >
+                      Add to watchlist
+                    </button>
+                  </div>
+                </div>
               );
             })
           ) : (
@@ -134,10 +161,10 @@ const handleLimit:IBlogs['handleLimit']=()=>{
         </div>
         <div className="py-8 flex justify-center items-center text-white  w-full h-10 ">
           <button
-          onClick={()=>handleLimit()} 
-          className="border border-gray-500 rounded-full text-gray-300 px-16 py-4"
-        >
-          Load more + (12)
+            onClick={() => handleLimit()}
+            className="border border-gray-500 rounded-full text-gray-300 px-16 py-4"
+          >
+            Load more + (12)
           </button>
         </div>
       </div>

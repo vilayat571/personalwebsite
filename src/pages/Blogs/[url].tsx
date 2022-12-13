@@ -27,7 +27,6 @@ export default function SingleBlog() {
       .then((data) => setBlog(data));
   }, []);
 
-  console.log(blog);
 
   return (
     <Layout>

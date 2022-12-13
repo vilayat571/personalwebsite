@@ -1,24 +1,10 @@
-import { memo, useState } from "react";
-import Nav from "./Nav";
-import Sidebar from "./Sidebar";
-
-interface INavbar {
-  changeMode(): void;
-}
+import { memo } from "react";
+import Navside from "../../atoms/Navbar/Navside";
 
 function Navbar() {
-  const [mode, setMode] = useState<boolean>(false);
-
-  const changeMode: INavbar["changeMode"] = () => {
-    setMode(!mode);
-  };
-
   return (
-    <div className="w-full  flex  justify-center items-center">
-      <div className=" w-full flex flex-col items-center">
-        <Nav mode={mode} changeMode={() => changeMode()} />
-        <Sidebar mode={mode} />
-      </div>
+    <div className="w-full flex  justify-center items-center">
+      <Navside />
     </div>
   );
 }

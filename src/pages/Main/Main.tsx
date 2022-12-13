@@ -4,8 +4,9 @@ import Brief from "../../parts/Main/Brief";
 import Promotion from "../../parts/Main/Promotion";
 import Recomendation from "../../parts/Main/Recomendation";
 import { Helmet } from "react-helmet-async";
+import { memo } from "react";
 
-export default function Main() {
+export default memo(function Main() {
   return (
     <Layout>
       <Helmet>
@@ -27,4 +28,6 @@ export default function Main() {
       </div>
     </Layout>
   );
-}
+});
+
+/* header and brief in main page was done */

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../atoms/Navbar/Logo";
+import logo from "../../assets/images/logo.png";
 import { signIn } from "../../redux/reducers/sigininReducer";
 import { useAppDispatch } from "../../redux/store";
 
@@ -40,7 +42,6 @@ export default function Signin() {
       email: "",
       password: "",
     });
-     navigate("/");
   };
 
   return (
@@ -52,7 +53,7 @@ export default function Signin() {
         <div className="w-full h-auto ">
           <form
             onSubmit={(e) => handleSubmit(e)}
-            className="flex items-center gap-8 mt-20 flex-col "
+            className="flex items-center gap-6 mt-28 flex-col "
           >
             <input
               className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
@@ -74,16 +75,25 @@ export default function Signin() {
               type="text"
               required={true}
             />
-            <button
-              className="border-none px-16 mt-2 rounded-sm py-3
+            <div className="flex gap-4">
+              <button
+                className="border-none px-12 mt-2 text-sm rounded-sm py-3
          bg-[#2e3039] text-[#fff] "
-            >
-              Sign in
-            </button>
+              >
+                Sign in
+              </button>
+              <Link
+                className="border-none px-12 mt-2 text-sm rounded-sm py-3
+         bg-[#2e3039] text-[#fff]"
+                to={"/"}
+              >
+                Go back
+              </Link>
+            </div>
           </form>
-          <div className="w-full mt-8 flex justify-center items-center">
+          <div className="w-full mt-8 flex flex-col justify-center items-center">
             <div className="w-1/2 text-sm text-center h-auto text-[#a9adc1] ">
-              Did you not have any account?. 
+              Did you not have any account ?.
               <Link className="text-white ml-2" to={"/signup"}>
                 Create an account
               </Link>
