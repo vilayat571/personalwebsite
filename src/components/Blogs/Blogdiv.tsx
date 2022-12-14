@@ -1,30 +1,23 @@
 import { Link } from "react-router-dom";
+import Blogimage from "../../atoms/Blogs/Blogimage";
+import Blogtitle from "../../atoms/Blogs/Blogtitle";
+import Dangeroushtmldiv from "../../atoms/Blogs/Dangeroushtmldiv";
 import { Iblog } from "../Main/Recomendedblogs";
 
-
 interface ISingleBlogDiv {
-    blog: Iblog;
-    index: number;
-  }
+  blog: Iblog;
+}
 
 export default function Blogdiv(props: ISingleBlogDiv) {
   return (
     <Link
       to={`/blogs/${props.blog.id}`}
-      className="lg:w-auto sm:w-[450px]
+      className="lg:w-auto flex flex-col gap-y-1 sm:w-[450px]
      md:w-auto xl:w-auto"
     >
-      <img
-        className="rounded-md lg:w-[380px] sm:w-[450px] md:w-[380px] xl:w-[380px]
-      sm:h-[520px] object-cover lg:h-[480px]  xl:h-[480px] md:h-[480px]"
-        src={props.blog.image}
-        alt="blog appearance"
-      />
-      <div
-        style={{ lineHeight: "44px" }}
-        className="line-clamp-2 mt-4 text-left text-2xl w-full text-white "
-        dangerouslySetInnerHTML={{ __html: props.blog.body }}
-      />
+      <Blogimage img={props.blog.image} />
+      <Blogtitle title={props.blog.title} />
+      <Dangeroushtmldiv body={props.blog.body} />
     </Link>
   );
 }

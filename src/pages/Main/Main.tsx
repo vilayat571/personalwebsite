@@ -29,5 +29,3 @@ export default memo(function Main() {
     </Layout>
   );
 });
-
-/* header and brief in main page was done */
