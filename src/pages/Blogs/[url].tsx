@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import Toblogs from "../../atoms/Main/Toblogs";
 import Layout from "../../layout/Layout";
 import profile from "../../assets/images/me.png";
-import { lineHeight } from "@mui/system";
 
 interface IBlog {
   author: number | string;
@@ -25,7 +24,7 @@ export default function SingleBlog() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBlog(data));
-  }, []);
+  }, [id]);
 
 
   return (

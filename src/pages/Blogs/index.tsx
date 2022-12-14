@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import {  useNavigate } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
-import { addToWisList } from "../../redux/reducers/addtolistReducer";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
@@ -12,7 +10,7 @@ interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
   handleClick(id: number): void;
   handleLimit(): void;
-  addtoWatchlist(id:number):void;
+  addtoWatchlist(id: number): void;
 }
 
 interface ICategory {
@@ -29,7 +27,6 @@ export default function Blogs() {
     (state: RootState) => state.allBlogsReducer.blogs
   );
 
-
   const categories = useAppSelector(
     (state: RootState) => state.allcategoriesReducer.categories
   );
@@ -37,8 +34,7 @@ export default function Blogs() {
   const [limit, setLimit] = useState<number>(12);
 
   const handleLimit: IBlogs["handleLimit"] = useCallback(() => {
-    setLimit(limit + 12);
-    // window.scrollTo(0,document.body.scrollHeight-600)
+    setLimit((limit) => limit + 12);
   }, []);
 
   const handleChange: IBlogs["handleChange"] = useCallback(
@@ -49,31 +45,31 @@ export default function Blogs() {
     []
   );
 
-  const handleClick: IBlogs["handleClick"] = useCallback((id) => {
-    dispatch(getBlogs({ id: id, limit: limit }));
-  }, []);
+  const handleClick: IBlogs["handleClick"] = useCallback(
+    (id) => {
+      dispatch(getBlogs({ id: id, limit: limit }));
+    },
+    [dispatch, limit]
+  );
 
   useEffect(() => {
     dispatch(getBlogs({ id: -1, limit: limit }));
     dispatch(getCategories());
-  }, [limit]);
+  }, [dispatch, limit]);
 
-  const navigate = useNavigate();
 
   const filteredData =
     blogs &&
     blogs.filter((item: Iblog) => {
-      return item.title.toLowerCase().indexOf(query.toLocaleLowerCase()) != -1;
+      return item.title.toLowerCase().indexOf(query.toLocaleLowerCase()) !== -1;
     });
 
+  const [list, setList] = useState<any>([]);
 
-  const [list,setList]=useState<any>([])
-
-  const addtoWatchlist:IBlogs['addtoWatchlist'] = (id:number) => {
-    setList([...list,id]);
+  const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
+    setList([...list, id]);
 
     //dispatch(addToWisList(id));
-    
   };
 
   return (
@@ -127,7 +123,7 @@ export default function Blogs() {
             filteredData.map((blog: Iblog, index: number) => {
               return (
                 <div
-                 // to={`/blogs/${blog.id}`}
+                  // to={`/blogs/${blog.id}`}
                   className=" my-6 flex flex-col items-start"
                   key={index}
                 >

@@ -17,7 +17,8 @@ export default function Recomendedblogs() {
 
   useEffect(() => {
     dispatch(fetchBlogs());
-  }, []);
+  }, [dispatch]);
+
 
   const blogs = useAppSelector((state: RootState) => state.blogsReducer.blogs);
 

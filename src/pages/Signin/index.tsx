@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../atoms/Navbar/Logo";
-import logo from "../../assets/images/logo.png";
+
 import { signIn } from "../../redux/reducers/sigininReducer";
 import { useAppDispatch } from "../../redux/store";
 
