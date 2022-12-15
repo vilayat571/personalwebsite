@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function TokenNav() {
-  const details = localStorage.getItem("userDetails");
+//  const details = localStorage.getItem("userDetails");
   //et email = details ? JSON.parse(details).user_details.email : 'email yoxdur';
 
   const [token, setToken] = useState<string | null>(null);
