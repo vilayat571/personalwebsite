@@ -5,12 +5,10 @@ export default function Termsofuse() {
   return (
     <Layout>
       <div className="flex flex-col pt-32 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
-    
         <div className="w-full flex-col h-auto flex justify-center items-center">
-
           <img
             className="  h-[600px] object-fill mb-28 rounded-md border-0"
-src='https://www.posturite.co.uk/media/mageplaza/blog/post/uploads/2016/09/workstation-405768_1920.jpg'
+            src="https://www.posturite.co.uk/media/mageplaza/blog/post/uploads/2016/09/workstation-405768_1920.jpg"
             alt=""
           />
         </div>
@@ -55,7 +53,7 @@ src='https://www.posturite.co.uk/media/mageplaza/blog/post/uploads/2016/09/works
           }
         />
         <div className="h-16"></div>
-        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">Take care!</h1>
+        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">Take care of you!</h1>
       </div>
     </Layout>
   );
