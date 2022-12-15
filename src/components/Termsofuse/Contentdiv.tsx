@@ -5,7 +5,7 @@ interface IContentdiv {
 
 export default function Contentdiv(props: IContentdiv) {
   return (
-    <div>
+    <div className="mx-24">
       <h1 className="text-white text-[28px] tracking-[0.3px] mb-8">
         {props.title}
       </h1>

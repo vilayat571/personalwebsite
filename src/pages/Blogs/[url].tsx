@@ -26,7 +26,6 @@ export default function SingleBlog() {
       .then((data) => setBlog(data));
   }, [id]);
 
-
   return (
     <Layout>
       <div>
@@ -81,7 +80,7 @@ export default function SingleBlog() {
                 to help people, because Wilayat thinks that it is also helping
                 itself. Vilayat is Muslim and lives in Baku, Azerbaijan.
               </p>
-              <Toblogs text={'Learn more about author'} url='/' />
+              <Toblogs text={"Learn more about author"} url="/" />
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Blogs from "./pages/Blogs";
 import Singleblog from "./pages/Blogs/[url]";
 import Contact from "./pages/Contact";
 import Main from "./pages/Main/Main";
+import Account from "./pages/Profile/Account";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup/Index";
 import Termsofuse from "./pages/Termsofuse/Termsofuse";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/termsofuse" element={<Termsofuse />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>

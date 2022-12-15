@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../../layout/Layout";
+import { signUpUser } from "../../redux/reducers/signupReducer";
+import { useAppDispatch } from "../../redux/store";
 
 interface ISignup {
   first_name: string;
@@ -11,6 +14,11 @@ interface ISignup {
 
 interface IFunc {
   (e: React.ChangeEvent<HTMLInputElement>): void;
+  
+}
+
+interface IFunc2{
+  (e:React.FormEvent<HTMLFormElement>):void;
 }
 
 export default function Signup() {
@@ -22,15 +30,28 @@ export default function Signup() {
     password: "",
   });
 
+  const dispatch=useAppDispatch();
+
   const handleChange: IFunc = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
-    console.log(form);
   };
-  /* Basim getdi qaqa)) gozle gorek */
+
+const navigate=useNavigate();
+
+  const handleSubmit:IFunc2=(e:React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
+    dispatch(signUpUser());
+    navigate('/signin')
+  }
+  
+
+
   return (
     <Layout>
       <div className="w-full h-auto ">
-        <form className="flex items-center gap-4 flex-col ">
+        <form 
+        onSubmit={(e)=>handleSubmit(e)}
+        className="flex items-center gap-4 flex-col ">
           <input
             className=" outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
              border-b  h-10 rounded-sm w-1/2 indent-4"
@@ -82,8 +103,12 @@ export default function Signup() {
             type="text"
             required={true}
           />
-          <button className="border-none px-12 rounded-sm py-3
-           bg-[#2e3039] text-[#fff]  mt-8">Sign up</button>
+          <button
+            className="border-none px-12 rounded-sm py-3
+           bg-[#2e3039] text-[#fff]  mt-8"
+          >
+            Sign up
+          </button>
         </form>
       </div>
     </Layout>

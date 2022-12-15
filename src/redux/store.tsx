@@ -5,6 +5,7 @@ import allcategoriesReducer from "./reducers/allcategoriesReducer";
 import blogsReducer from "./reducers/blogsReducer";
 import contactReducer from "./reducers/contactReducer";
 import sigininReducer from "./reducers/sigininReducer";
+import signupReducer from "./reducers/signupReducer";
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const store = configureStore({
     signinReducer: sigininReducer,
     blogsReducer:blogsReducer,
     allBlogsReducer:allBlogsReducer,
-    allcategoriesReducer:allcategoriesReducer
+    allcategoriesReducer:allcategoriesReducer,
+    signupReducer:signupReducer
   },
 });
 

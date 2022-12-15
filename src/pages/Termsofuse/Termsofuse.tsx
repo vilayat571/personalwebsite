@@ -4,8 +4,17 @@ import Layout from "../../layout/Layout";
 export default function Termsofuse() {
   return (
     <Layout>
-      <div className="flex flex-col lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
-       
+      <div className="flex flex-col pt-32 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
+    
+        <div className="w-full flex-col h-auto flex justify-center items-center">
+
+          <img
+            className="  h-[600px] object-fill mb-28 rounded-md border-0"
+src='https://www.posturite.co.uk/media/mageplaza/blog/post/uploads/2016/09/workstation-405768_1920.jpg'
+            alt=""
+          />
+        </div>
+
         <Contentdiv
           title={"Mission"}
           content={
@@ -13,7 +22,7 @@ export default function Termsofuse() {
           }
         />
         <div className="h-28"></div>
-       
+
         <Contentdiv
           title={"Privacy"}
           content={
@@ -21,7 +30,7 @@ export default function Termsofuse() {
           }
         />
         <div className="h-28"></div>
-       
+
         <Contentdiv
           title={"Terms"}
           content={
@@ -29,7 +38,7 @@ export default function Termsofuse() {
           }
         />
         <div className="h-28"></div>
-       
+
         <Contentdiv
           title={"How you can support me best"}
           content={
@@ -38,15 +47,15 @@ export default function Termsofuse() {
         />
 
         <div className="h-28"></div>
-       
+
         <Contentdiv
           title={"Conclusion"}
           content={
             "I hope this transparency page gives you an idea of what my incentives are and if you're one of the terrific people who benefit from my free stuff I hope you use that to make your corner of the world a better place. Please keep in mind that sharing my blogs, I try  to improve my skills.             "
           }
         />
-        <div className="h-12"></div>
-        <h1 className="text-[#a9adc1] tracking-[0.6px]">Take care!</h1>
+        <div className="h-16"></div>
+        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">Take care!</h1>
       </div>
     </Layout>
   );
