@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Signin/Input";
 import Redirects from "../../components/Signin/Redirects";
@@ -6,7 +6,7 @@ import Signinbutton from "../../components/Signin/Signinbutton";
 import { signUpUser } from "../../redux/reducers/signupReducer";
 import { useAppDispatch } from "../../redux/store";
 
-interface ISignup {
+export interface ISignup {
   email: string;
   username: string;
   password: string;
@@ -20,7 +20,7 @@ interface IFunc2 {
   (e: React.FormEvent<HTMLFormElement>): void;
 }
 
-export default function Signupform() {
+export default memo(function Signupform() {
   const [form, setForm] = useState<ISignup>({
     email: "",
     username: "",
@@ -29,17 +29,19 @@ export default function Signupform() {
 
   const dispatch = useAppDispatch();
 
-  const handleChange: IFunc = (e) => {
+  const handleChange: IFunc = useCallback((e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
-  };
+  }, [form]);
 
   const navigate = useNavigate();
 
   const handleSubmit: IFunc2 = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(signUpUser());
+    dispatch(signUpUser(form));
     navigate("/signin");
   };
+
+  console.log("Sign up");
 
   return (
     <div className="flex justify-center h-screen items-center w-full">
@@ -49,7 +51,7 @@ export default function Signupform() {
       >
         <Input
           handleChange={handleChange}
-          id="Username"
+          id="username"
           placeholder="Username"
           stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
        border h-12 border-gray-500 rounded-sm w-full  indent-4"
@@ -69,7 +71,7 @@ export default function Signupform() {
 
         <Input
           handleChange={handleChange}
-          id="pasword"
+          id="password"
           placeholder="Password"
           stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
        border h-12 border-gray-500 rounded-sm w-full indent-4"
@@ -85,4 +87,4 @@ export default function Signupform() {
       </form>
     </div>
   );
-}
+});

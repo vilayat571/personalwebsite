@@ -15,6 +15,7 @@ const initialState: IinitialState = {
 
 export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
   const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
+  console.log(data)
   return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

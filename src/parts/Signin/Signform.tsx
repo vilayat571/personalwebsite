@@ -43,11 +43,12 @@ export default function Signform(props: ISignForm) {
       email: "",
       password: "",
     });
-    props.setLoading(false);
+    navigate("/");
+   /*  props.setLoading(false);
     setTimeout(() => {
       navigate("/");
       props.setLoading(true);
-    }, 600);
+    }, 600); */
   };
 
   return (

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ISignup } from "../../parts/Signup/Signupform";
 
 interface IInitialState {
   data: any;
@@ -12,17 +13,22 @@ const initialState: IInitialState = {
   error: null,
 };
 
-export const signUpUser = createAsyncThunk("/reducerUser", async (form) => {
-  //const url = "";
-  /*   fetch(url,{
-        method:"POST",
-        headers:{'Content-Type':'application/json'},
-body:JSON.stringify({
-
-})
-    }) */
-  console.log(form);
-});
+export const signUpUser = createAsyncThunk(
+  "/reducerUser",
+  async (form: ISignup) => {
+    const url = "https://api.vilayatsafarov.com/api/v1/account/register/";
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: form.email,
+        username: form.username,
+        password: form.password,
+      }),
+    });
+    console.log(form);
+  }
+);
 
 const signupReducer = createSlice({
   name: "signupReducer",
