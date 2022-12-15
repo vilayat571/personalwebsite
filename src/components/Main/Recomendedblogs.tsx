@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import Blogsdiv from "../../parts/Main/Blogsdiv";
 import { fetchBlogs } from "../../redux/reducers/blogsReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
@@ -12,7 +12,7 @@ export interface Iblog {
   id: number;
 }
 
-export default function Recomendedblogs() {
+export default memo(function Recomendedblogs() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -30,4 +30,4 @@ export default function Recomendedblogs() {
       <Blogsdiv blogs={blogs && blogs} />
     </div>
   );
-}
+})

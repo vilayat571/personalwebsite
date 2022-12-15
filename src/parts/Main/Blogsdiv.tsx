@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Blog from "../../components/Blogs/Blog";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 
@@ -5,7 +6,7 @@ interface IBlogsdiv {
   blogs: any;
 }
 
-export default function Blogsdiv(props: IBlogsdiv) {
+export default memo(function Blogsdiv(props: IBlogsdiv) {
   console.log("blogs");
   return (
     <>
@@ -16,3 +17,4 @@ export default function Blogsdiv(props: IBlogsdiv) {
     </>
   );
 }
+)

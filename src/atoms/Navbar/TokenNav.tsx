@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function TokenNav() {
-//  const details = localStorage.getItem("userDetails");
-  //et email = details ? JSON.parse(details).user_details.email : 'email yoxdur';
-
   const [token, setToken] = useState<string | null>(null);
 
+  const [name, setName] = useState<string>("");
+
   useEffect(() => {
+    const details = localStorage.getItem("userDetails");
+    setName(details && JSON.parse(details).user_details.username);
     setToken(localStorage.getItem("jwt"));
   }, []);
 
+  console.log(token);
+
   return (
     <>
-      {token ? (
+      {token && token.length > 20 ? (
         <div className="">
-          <Link to={"/account"}>Was logined</Link>
+          <Link to={"/account"}>{name}</Link>
         </div>
       ) : (
         <Link

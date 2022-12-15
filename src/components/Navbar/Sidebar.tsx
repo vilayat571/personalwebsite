@@ -14,8 +14,8 @@ export default function Sidebar(props: ISidebar) {
       <Navlink name={"Blogs"} to={"blogs"} />
       <Navlink name={"Watchlist"} to={"watchlist"} />
       <Navlink name={"About"} to={"about"} />
-      <Navlink name={"Sign in"} to={"about"} />
-      <Navlink name={"Sign up"} to={"about"} />
+      <Navlink name={"Sign in"} to={"signin"} />
+      <Navlink name={"Sign up"} to={"signup"} />
     </div>
   );
 }
