@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Redirects from "../../components/Signin/Redirects";
 import Signform from "./Signform";
 
