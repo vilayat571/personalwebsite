@@ -1,6 +1,5 @@
 import Pelement from "../Main/Pelement";
 
-
 export default function Contentofme() {
   return (
     <>
@@ -10,7 +9,7 @@ export default function Contentofme() {
           "text-white lg:w-[85%] sm:w-full md:w-full xl:w-[85%] sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
         }
       />
-       <Pelement
+      <Pelement
         text={"I'm a software developer."}
         stil={
           "text-white lg:w-[85%] sm:w-full md:w-full xl:w-[85%] sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[36px] tracking-[0.6px] "
@@ -21,7 +20,7 @@ export default function Contentofme() {
           "I'm someone who enjoys helping people and wants to improve myself so."
         }
         stil={
-          "text-[#a9adc1] lg:w-[90%] sm:w-full md:w-full xl:w-[90%] mt-4 font-thin sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[34px] tracking-[0.6px] "
+          "text-[#a9adc1] lg:w-[90%] sm:w-full lg:mt-2 sm:mt-0 md:mt-0 xl:mt-2 md:w-full xl:w-[90%] font-thin sm:text-3xl md:text-3xl xl:text-[36px] lg:text-[34px] tracking-[0.6px] "
         }
       />
     </>

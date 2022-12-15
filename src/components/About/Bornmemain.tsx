@@ -1,4 +1,3 @@
-import React from "react";
 import Bornmetext from "../../atoms/About/Bornmetext";
 import Linktome from "./Linktome";
 

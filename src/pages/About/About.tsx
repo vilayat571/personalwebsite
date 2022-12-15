@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet-async";
 import Recomendation from "../../parts/Main/Recomendation";
 
 export default function About() {
+
+
   return (
     <Layout>
       <Helmet>
