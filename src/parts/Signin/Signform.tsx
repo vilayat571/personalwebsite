@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
 import { signIn } from "../../redux/reducers/sigininReducer";
-import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
+import { useAppDispatch } from "../../redux/store";
 
 interface ISubmit {
   (e: React.FormEvent<HTMLFormElement>): any;
@@ -36,7 +36,6 @@ export default function Signform(props: ISignForm) {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
 
-  const error = useAppSelector((state: RootState) => state.signinReducer.error);
 
   const navigate = useNavigate();
 
