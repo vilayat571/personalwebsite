@@ -7,6 +7,7 @@ import { addToWisList } from "../../redux/reducers/addtolistReducer";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -117,7 +118,7 @@ export default function Blogs() {
         <div
           className={
             filteredData.length > 0
-              ? "h-auto w-full grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-4"
+              ? "h-auto w-full grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-y-6  gap-x-12"
               : "h-auto w-full grid grid-cols-3"
           }
         >
@@ -126,28 +127,32 @@ export default function Blogs() {
               return (
                 <div className=" my-6 flex flex-col items-start" key={index}>
                   <Link className="w-full" to={`/blogs/${blog.id}`}>
-                    <div className="border flex justify-start ">
-                      <img
-                        className="rounded-lg  w-full h-[480px]"
-                        src={blog.image}
-                        alt=""
-                      />
-                      <div className="w-full bg-black  block  h-[480px]"></div>
-                    </div>
-
-                    <div
-                      style={{ lineHeight: "44px" }}
-                      className="line-clamp-2 mt-4 text-2xl text-white "
-                      dangerouslySetInnerHTML={{ __html: blog.body }}
+                    <img
+                      className="rounded-lg  border-0 w-full h-[480px]"
+                      src={blog.image}
+                      alt=""
                     />
                   </Link>
-                  <div className="w-full flex justify-center items-center">
-                    <button
-                      onClick={() => addtoWatchlist(blog.id)}
-                      className="border border-gray-500 text-center mt-8 text-white py-3 px-12"
-                    >
-                      Add to watchlist
-                    </button>
+                  <div className=" mt-0 flex flex-col">
+                    <div className="text-xl  flex justify-between items-center text-[#a9adc1] mt-6">
+                      <span>{blog.title}</span>
+                      <button
+                        onClick={() => addtoWatchlist(blog.id)}
+                        className=" px-2 py-2 text-sm bg-[#2e3039] text-white
+                          rounded-full "
+                      >
+                        
+                         <FavoriteBorderIcon fontSize='small' />  
+                      </button>
+                    </div>
+                    
+                    <div
+                      style={{ lineHeight: "30px" }}
+                      className="line-clamp-2 mt-4 text-xl text-white "
+                      dangerouslySetInnerHTML={{ __html: blog.body }}
+                    />
+
+                   
                   </div>
                 </div>
               );

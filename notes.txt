@@ -1,22 +1,44 @@
-Responsive project road map
+<div className="flex justify-start items-start">
+                   <div>
+                   <Link className="" to={`/blogs/${blog.id}`}>
+                      <img
+                        className="rounded-lg w-full h-[480px]"
+                        src={blog.image}
+                        alt=""
+                      />
+                    </Link>
+                    <div className="relative z-10 right-[13%] mt-2 mr-1">
+                      <button
+                        onClick={() => addtoWatchlist(blog.id)}
+                        className="bg-[#2e324e] px-2 py-2 rounded-full
+                       text-white border-none"
+                      >
+                        <FavoriteBorderIcon />
+                      </button>
+                    </div>
+                   </div>
 
-1) Layout page
- a) Navbar +
- b) Footer -
-
-2) Main page
- a) Header +
- b) Brief +
- c) Promotaion +
- d) Recomendation -
+                    <div
+                      style={{ lineHeight: "44px" }}
+                      className="line-clamp-2 mt-4 text-2xl text-white "
+                      dangerouslySetInnerHTML={{ __html: blog.body }}
+                    />
+                  </div>
 
 
-3) Pages
-Main -
-Blogs -
-Watchlist -
-About -
-Sign in -
-Sign up -
-404 +
 
+                   <Link className="" to={`/blogs/${blog.id}`}>
+                      <img
+                        className="rounded-lg w-full h-[480px]"
+                        src={blog.image}
+                        alt=""
+                      />
+                    </Link>
+                    
+                      {/* <button
+                        onClick={() => addtoWatchlist(blog.id)}
+                        className="bg-[#2e324e] mr-1 mt-2 px-2 py-2 rounded-full
+                       text-white border-none"
+                      >
+                        <FavoriteBorderIcon />
+                      </button> */}
