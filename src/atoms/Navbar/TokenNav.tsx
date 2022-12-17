@@ -9,7 +9,7 @@ export default function TokenNav() {
   useEffect(() => {
     const details = localStorage.getItem("userDetails");
     if (details) {
-      setName(JSON.parse(details).user_details.username);
+      setName(JSON.parse(details).user_details && JSON.parse(details).user_details.username);
     }
     setToken(localStorage.getItem("jwt"));
   }, []);
