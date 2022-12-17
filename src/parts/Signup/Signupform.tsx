@@ -29,19 +29,36 @@ export default memo(function Signupform() {
 
   const dispatch = useAppDispatch();
 
-  const handleChange: IFunc = useCallback((e) => {
-    setForm({ ...form, [e.target.id]: e.target.value });
-  }, [form]);
+  const handleChange: IFunc = useCallback(
+    (e) => {
+      setForm({ ...form, [e.target.id]: e.target.value });
+    },
+    [form]
+  );
 
   const navigate = useNavigate();
 
+  const [message, setMessage] = useState<string>("");
+
   const handleSubmit: IFunc2 = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(signUpUser(form));
-    navigate("/signin");
+    if (form.email.indexOf("@") !== -1 && form.password) {
+      if (form.password.length < 8) {
+        setMessage("password must be 8 symbol");
+        setTimeout(() => {
+          setMessage("");
+        }, 1000);
+      } else {
+        dispatch(signUpUser(form));
+        navigate("/signin");
+      }
+    } else {
+      setMessage("@ must have");
+      setTimeout(() => {
+        setMessage("");
+      }, 1000);
+    }
   };
-
-  console.log("Sign up");
 
   return (
     <div className="flex justify-center h-screen items-center w-full">
@@ -85,6 +102,15 @@ export default memo(function Signupform() {
           text2="Sign in"
         />
       </form>
+      <span
+        className={
+          message.length > 1
+            ? "text-white  text-left absolute px-8 py-3 bg-red-500 right-4 bottom-8 m-4 text-sm"
+            : "hidden"
+        }
+      >
+        {message}
+      </span>
     </div>
   );
 });

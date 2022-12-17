@@ -15,7 +15,7 @@ const initialState: IinitialState = {
 
 export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
   const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
-  console.log(data)
+  console.log(data);
   return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -31,13 +31,22 @@ const signinReducer = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(signIn.pending, (state, action) => {
+      state.loading = true;
+      state.error = null;
+    });
     builder.addCase(signIn.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
       const access = action.payload.access;
+      //access !== undefined &&
       localStorage.setItem("jwt", access);
       localStorage.setItem("userDetails", JSON.stringify(action.payload));
     });
+    builder.addCase(signIn.rejected, (state, action) => {
+      state.loading = false;
+/*       console.log(action.err)
+ */    });
   },
 });
 

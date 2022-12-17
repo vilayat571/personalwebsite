@@ -12,7 +12,7 @@ export default function TokenNav() {
     setToken(localStorage.getItem("jwt"));
   }, []);
 
-  console.log(token);
+
 
   return (
     <>

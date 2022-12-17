@@ -12,20 +12,25 @@ const initialState: IAdd = {
   error: null,
 };
 
-export const addToWisList = createAsyncThunk("/addtoList", async (list:Array<number>) => {
-  const url = "https://api.vilayatsafarov.com/api/v1/account/wish-list/";
+export const addToWisList = createAsyncThunk(
+  "/addtoList",
+  async (list: Array<number>) => {
+    const url = "https://api.vilayatsafarov.com/api/v1/account/wish-list/";
 
+    const token = localStorage.getItem("jwt");
 
-  console.log('list',list)
-
- /*  fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        wish_list:[id]
-    }),
-  }); */
-});
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        wish_list: list,
+      }),
+    });
+  }
+);
 
 const addtolistReducer = createSlice({
   name: "addtolistReducer",

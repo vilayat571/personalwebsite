@@ -16,17 +16,19 @@ const initialState: IInitialState = {
 export const askQuestion = createAsyncThunk(
   "./postQuestion",
   async (form?: IContact) => {
-    const url = "https://api.vilayatsafarov.com/api/v1/contact/";
-    fetch(url,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        name: form?.name,
-        email: form?.email,
+    const token = localStorage.getItem("jwt");
+    const url = "https://api.vilayatsafarov.com/api/v1/blog/questions/";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title: form?.title,
         subject: form?.subject,
-        message: form?.message,
-      })
-    })
+      }),
+    });
   }
 );
 
@@ -44,3 +46,4 @@ const contactReducer = createSlice({
 });
 
 export default contactReducer.reducer;
+/* bearer token qeyd gotur */

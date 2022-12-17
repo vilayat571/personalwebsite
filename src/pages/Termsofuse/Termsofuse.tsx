@@ -1,25 +1,19 @@
 import Contentdiv from "../../components/Termsofuse/Contentdiv";
+import Imgtitle from "../../components/Termsofuse/Imgtitle";
 import Layout from "../../layout/Layout";
 
 export default function Termsofuse() {
   return (
     <Layout>
-      <div className="flex flex-col pt-32 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
-        <div className="w-full flex-col h-auto flex justify-center items-center">
-          <img
-            className="  h-[600px] object-fill mb-28 rounded-md border-0"
-            src="https://www.posturite.co.uk/media/mageplaza/blog/post/uploads/2016/09/workstation-405768_1920.jpg"
-            alt=""
-          />
-        </div>
-
+      <div className="flex flex-col pt-24 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
+        <Imgtitle />
         <Contentdiv
           title={"Mission"}
           content={
             "My mission is linked to my goals, so my goals are to do the best work in my field. Therefore, my aim in producing quality work is also to create software tools that will facilitate people's work. At the same time, I want to constantly improve myself. Dr. As Robert Kiyosaki said - 'Do what you want today for tomorrow'"
           }
         />
-        <div className="h-28"></div>
+        <div className="h-24"></div>
 
         <Contentdiv
           title={"Privacy"}
@@ -27,7 +21,7 @@ export default function Termsofuse() {
             "I collect user first names and email addresses. These are stored in my own database. I also track the blog posts that you have read to give you good recommendations. This data is not viewable by anyone other than myself. When you read a blog post, I keep track of that. Everything on this site is open source so if you're curious, you can find out for yourself what I do with your data"
           }
         />
-        <div className="h-28"></div>
+        <div className="h-24"></div>
 
         <Contentdiv
           title={"Terms"}
@@ -35,7 +29,7 @@ export default function Termsofuse() {
             "Everything on vilayatsafarov.com is provided free of charge and therefore there is no promise this will continue. I'll do my best to keep things going and preserve your data, but that's a plan, not a promise."
           }
         />
-        <div className="h-28"></div>
+        <div className="h-24"></div>
 
         <Contentdiv
           title={"How you can support me best"}
@@ -44,7 +38,7 @@ export default function Termsofuse() {
           }
         />
 
-        <div className="h-28"></div>
+        <div className="h-24"></div>
 
         <Contentdiv
           title={"Conclusion"}
@@ -53,7 +47,9 @@ export default function Termsofuse() {
           }
         />
         <div className="h-16"></div>
-        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">Take care of you!</h1>
+        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">
+          Take care of you!
+        </h1>
       </div>
     </Layout>
   );

@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link, useNavigate } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
+import { addToWisList } from "../../redux/reducers/addtolistReducer";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
@@ -57,7 +59,6 @@ export default function Blogs() {
     dispatch(getCategories());
   }, [dispatch, limit]);
 
-
   const filteredData =
     blogs &&
     blogs.filter((item: Iblog) => {
@@ -66,10 +67,11 @@ export default function Blogs() {
 
   const [list, setList] = useState<any>([]);
 
+  const navigate = useNavigate();
+
   const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
     setList([...list, id]);
-
-    //dispatch(addToWisList(id));
+    dispatch(addToWisList(list));
   };
 
   return (
@@ -122,26 +124,27 @@ export default function Blogs() {
           {filteredData.length > 0 ? (
             filteredData.map((blog: Iblog, index: number) => {
               return (
-                <div
-                  // to={`/blogs/${blog.id}`}
-                  className=" my-6 flex flex-col items-start"
-                  key={index}
-                >
-                  <img
-                    className="rounded-lg w-[380px] h-[480px]"
-                    src={blog.image}
-                    alt=""
-                  />
+                <div className=" my-6 flex flex-col items-start" key={index}>
+                  <Link className="w-full" to={`/blogs/${blog.id}`}>
+                    <div className="border flex justify-start ">
+                      <img
+                        className="rounded-lg  w-full h-[480px]"
+                        src={blog.image}
+                        alt=""
+                      />
+                      <div className="w-full bg-black  block  h-[480px]"></div>
+                    </div>
 
-                  <div
-                    style={{ lineHeight: "44px" }}
-                    className="line-clamp-2 mt-4 text-2xl text-white "
-                    dangerouslySetInnerHTML={{ __html: blog.body }}
-                  />
+                    <div
+                      style={{ lineHeight: "44px" }}
+                      className="line-clamp-2 mt-4 text-2xl text-white "
+                      dangerouslySetInnerHTML={{ __html: blog.body }}
+                    />
+                  </Link>
                   <div className="w-full flex justify-center items-center">
                     <button
                       onClick={() => addtoWatchlist(blog.id)}
-                      className="bg-[#2e3039] text-center mt-4 text-white py-3 px-12"
+                      className="border border-gray-500 text-center mt-8 text-white py-3 px-12"
                     >
                       Add to watchlist
                     </button>

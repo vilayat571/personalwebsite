@@ -1,0 +1,21 @@
+else {
+        /* else */
+        dispatch(signIn(form));
+
+        /* if */
+        if (
+          localStorage.getItem("jwt") !== null &&
+          localStorage.getItem("jwt") !== undefined
+        ) {
+          setForm({
+            email: "",
+            password: "",
+          });
+          navigate("/");
+        } else {
+          setMessage("email or password is wrong");
+          setTimeout(() => {
+            setMessage("");
+          }, 1000);
+        }
+      }
