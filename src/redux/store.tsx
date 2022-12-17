@@ -3,18 +3,18 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import allBlogsReducer from "./reducers/allBlogsReducer";
 import allcategoriesReducer from "./reducers/allcategoriesReducer";
 import blogsReducer from "./reducers/blogsReducer";
-import contactReducer from "./reducers/contactReducer";
+import questionReducer from "./reducers/questionReducer";
 import sigininReducer from "./reducers/sigininReducer";
 import signupReducer from "./reducers/signupReducer";
 
 export const store = configureStore({
   reducer: {
-    contactReducer: contactReducer,
+    questionReducer: questionReducer,
     signinReducer: sigininReducer,
-    blogsReducer:blogsReducer,
-    allBlogsReducer:allBlogsReducer,
-    allcategoriesReducer:allcategoriesReducer,
-    signupReducer:signupReducer
+    blogsReducer: blogsReducer,
+    allBlogsReducer: allBlogsReducer,
+    allcategoriesReducer: allcategoriesReducer,
+    signupReducer: signupReducer,
   },
 });
 

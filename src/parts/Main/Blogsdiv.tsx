@@ -16,5 +16,4 @@ export default memo(function Blogsdiv(props: IBlogsdiv) {
         })}
     </>
   );
-}
-)
+});

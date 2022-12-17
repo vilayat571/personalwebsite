@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IContact } from "../../pages/Contact";
+import { IQuestion } from "../../parts/Question/Questionform";
 
 interface IInitialState {
   data: any;
@@ -15,7 +15,7 @@ const initialState: IInitialState = {
 
 export const askQuestion = createAsyncThunk(
   "./postQuestion",
-  async (form?: IContact) => {
+  async (form?: IQuestion) => {
     const token = localStorage.getItem("jwt");
     const url = "https://api.vilayatsafarov.com/api/v1/blog/questions/";
     fetch(url, {
@@ -32,8 +32,8 @@ export const askQuestion = createAsyncThunk(
   }
 );
 
-const contactReducer = createSlice({
-  name: "contactReducer",
+const questionReducer = createSlice({
+  name: "questionReducer",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -45,5 +45,5 @@ const contactReducer = createSlice({
   },
 });
 
-export default contactReducer.reducer;
+export default questionReducer.reducer;
 /* bearer token qeyd gotur */

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
 import { addToWisList } from "../../redux/reducers/addtolistReducer";
@@ -68,7 +68,7 @@ export default function Blogs() {
 
   const [list, setList] = useState<any>([]);
 
-  const navigate = useNavigate();
+
 
   const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
     setList([...list, id]);
@@ -141,18 +141,15 @@ export default function Blogs() {
                         className=" px-2 py-2 text-sm bg-[#2e3039] text-white
                           rounded-full "
                       >
-                        
-                         <FavoriteBorderIcon fontSize='small' />  
+                        <FavoriteBorderIcon fontSize="small" />
                       </button>
                     </div>
-                    
+
                     <div
                       style={{ lineHeight: "30px" }}
                       className="line-clamp-2 mt-4 text-xl text-white "
                       dangerouslySetInnerHTML={{ __html: blog.body }}
                     />
-
-                   
                   </div>
                 </div>
               );

@@ -19,7 +19,6 @@ export default memo(function Recomendedblogs() {
     dispatch(fetchBlogs());
   }, [dispatch]);
 
-
   const blogs = useAppSelector((state: RootState) => state.blogsReducer.blogs);
 
   return (
@@ -30,4 +29,4 @@ export default memo(function Recomendedblogs() {
       <Blogsdiv blogs={blogs && blogs} />
     </div>
   );
-})
+});
