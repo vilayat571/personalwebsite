@@ -36,15 +36,13 @@ export default function Signform(props: ISignForm) {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
 
-
   const navigate = useNavigate();
-
 
   const details = localStorage.getItem("userDetails");
   const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (
+    dispatch(signIn(form));
+    /* if (
       form.email.indexOf("@gmail.com") !== -1 &&
       form.password !== "" &&
       form.email.length > 10
@@ -52,15 +50,13 @@ export default function Signform(props: ISignForm) {
       dispatch(signIn(form));
       if (
         details &&
-        JSON.parse(details).detail ===
-          "No active account found with the given credentials"
+        JSON.parse(details).detail === "No active account found with the given credentials"
       ) {
         setMessage("email or password is wrong");
         setTimeout(() => {
           setMessage("");
         }, 1000);
-      }
-      else if (form.password.length < 8) {
+      } else if (form.password.length < 8) {
         setMessage("password must be from 8 symbol");
         setTimeout(() => {
           setMessage("");
@@ -72,13 +68,16 @@ export default function Signform(props: ISignForm) {
         setMessage("");
         navigate("/");
       }
-    } else {
+    } 
+    
+    else {
       setMessage("@ must have");
       setTimeout(() => {
         setMessage("");
       }, 1000);
-    }
+    } */
   };
+
 
   return (
     <>

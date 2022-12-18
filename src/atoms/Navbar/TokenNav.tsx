@@ -9,7 +9,10 @@ export default function TokenNav() {
   useEffect(() => {
     const details = localStorage.getItem("userDetails");
     if (details) {
-      setName(JSON.parse(details).user_details && JSON.parse(details).user_details.username);
+      setName(
+        JSON.parse(details).user_details &&
+          JSON.parse(details).user_details.username
+      );
     }
     setToken(localStorage.getItem("jwt"));
   }, []);
@@ -23,7 +26,7 @@ export default function TokenNav() {
       ) : (
         <Link
           className=" tracking-[0.6px] px-6 py-3 border-0
-     rounded-full text-sm bg-[#2e3039] text-white"
+     rounded-full text-sm bg-[#282c3d] text-white"
           to={"/signin"}
         >
           Get started

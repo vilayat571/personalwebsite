@@ -4,25 +4,22 @@ import { RootState, useAppSelector } from "../../redux/store";
 export interface ICategory {
   id: number;
   category_name: string;
+  category: ICategory;
 }
 
 interface ICategories {
   limit: number;
-  handleClick(): void;
+  handleClick(id:number): void;
+  name:string;
+  id: number;
 }
 
 export default function Categories(props: ICategories) {
-  const categories = useAppSelector(
-    (state: RootState) => state.allcategoriesReducer.categories
-  );
+
 
   return (
     <>
-      {categories
-        ? categories.map((category: ICategory, index: number) => {
-            return <Button handleClick={props.handleClick} key={index} category={category} />;
-          })
-        : "Loading.."}
+      <Button handleClick={props.handleClick} categoryID={props.id} category={props.name} />
     </>
   );
 }

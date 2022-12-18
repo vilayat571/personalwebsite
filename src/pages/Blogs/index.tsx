@@ -8,6 +8,7 @@ import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Categories from "../../parts/Categories/Categories";
 
 interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -16,7 +17,7 @@ interface IBlogs {
   addtoWatchlist(id: number): void;
 }
 
-interface ICategory {
+export interface ICategory {
   id: number;
   category_name: string;
 }
@@ -68,8 +69,6 @@ export default function Blogs() {
 
   const [list, setList] = useState<any>([]);
 
-
-
   const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
     setList([...list, id]);
     dispatch(addToWisList(list));
@@ -103,16 +102,16 @@ export default function Blogs() {
             {categories
               ? categories.map((category: ICategory, index: number) => {
                   return (
-                    <button
-                      onClick={() => handleClick(category.id)}
+                    <Categories
                       key={index}
-                      className="rounded-full text-center tracking-[0.4px] py-3 px-6 text-sm text-white bg-[#2e3039]"
-                    >
-                      {category.category_name}
-                    </button>
+                      limit={limit}
+                      name={category.category_name}
+                      id={category.id}
+                      handleClick={() => handleClick(category.id)}
+                    />
                   );
                 })
-              : "Loading.."}
+              : ""}
           </div>
         </div>
         <div

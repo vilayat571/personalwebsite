@@ -15,7 +15,10 @@ const initialState: IinitialState = {
 
 export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
   const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
-  console.log(data);
+
+  /* const resTer=(res:any)=>{
+    res.json(),console.log(res.status)
+  } */
   return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -23,7 +26,7 @@ export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
       email: data.email,
       password: data.password,
     }),
-  }).then((res) => res.json());
+  }).then((res) => res.status)
 });
 
 const signinReducer = createSlice({
@@ -38,15 +41,16 @@ const signinReducer = createSlice({
     builder.addCase(signIn.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      const access = action.payload.access;
+      //const access = action.payload.access;
       //access !== undefined &&
-      localStorage.setItem("jwt", access);
-      localStorage.setItem("userDetails", JSON.stringify(action.payload));
+    //  localStorage.setItem("jwt", access);
+      //localStorage.setItem("userDetails", JSON.stringify(action.payload));
     });
     builder.addCase(signIn.rejected, (state, action) => {
       state.loading = false;
-/*       console.log(action.err)
- */    });
+      /*       console.log(action.err)
+       */
+    });
   },
 });
 
