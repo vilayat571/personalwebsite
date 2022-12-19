@@ -5,6 +5,7 @@ import Promotion from "../../parts/Main/Promotion";
 import Recomendation from "../../parts/Main/Recomendation";
 import { Helmet } from "react-helmet-async";
 import { memo } from "react";
+import Maincomp from "../../parts/Main/Askquestion/Maincomp";
 
 export default memo(function Main() {
   return (
@@ -23,6 +24,7 @@ export default memo(function Main() {
       <div className="flex flex-col w-full h-auto">
         <Header />
         <Brief />
+        <Maincomp />
         <Promotion />
         <Recomendation />
       </div>

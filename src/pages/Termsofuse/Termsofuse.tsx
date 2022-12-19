@@ -13,7 +13,7 @@ export default function Termsofuse() {
             "My mission is linked to my goals, so my goals are to do the best work in my field. Therefore, my aim in producing quality work is also to create software tools that will facilitate people's work. At the same time, I want to constantly improve myself. Dr. As Robert Kiyosaki said - 'Do what you want today for tomorrow'"
           }
         />
-        <div className="h-24"></div>
+        <div className="lg:h-24 md:h-20 sm:h-12 xl:h-24"></div>
 
         <Contentdiv
           title={"Privacy"}
@@ -21,7 +21,7 @@ export default function Termsofuse() {
             "I collect user first names and email addresses. These are stored in my own database. I also track the blog posts that you have read to give you good recommendations. This data is not viewable by anyone other than myself. When you read a blog post, I keep track of that. Everything on this site is open source so if you're curious, you can find out for yourself what I do with your data"
           }
         />
-        <div className="h-24"></div>
+        <div className="lg:h-24 md:h-20 sm:h-12 xl:h-24"></div>
 
         <Contentdiv
           title={"Terms"}
@@ -29,7 +29,7 @@ export default function Termsofuse() {
             "Everything on vilayatsafarov.com is provided free of charge and therefore there is no promise this will continue. I'll do my best to keep things going and preserve your data, but that's a plan, not a promise."
           }
         />
-        <div className="h-24"></div>
+        <div className="lg:h-24 md:h-20 sm:h-12 xl:h-24"></div>
 
         <Contentdiv
           title={"How you can support me best"}
@@ -38,7 +38,7 @@ export default function Termsofuse() {
           }
         />
 
-        <div className="h-24"></div>
+        <div className="lg:h-24 md:h-20 sm:h-12 xl:h-24"></div>
 
         <Contentdiv
           title={"Conclusion"}
@@ -47,7 +47,7 @@ export default function Termsofuse() {
           }
         />
         <div className="h-16"></div>
-        <h1 className="text-[#a9adc1] tracking-[0.6px] mx-24">
+        <h1 className="text-[#a9adc1] tracking-[0.6px] xl:mx-24 lg:mx-24 sm:mx-0 md:mx-0">
           Take care of you!
         </h1>
       </div>

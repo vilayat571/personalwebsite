@@ -69,7 +69,7 @@ export default function Questionform() {
           id={"title"}
           value={form.title}
         />
-        
+
         <Labelinput
           header="Description"
           content="Clearly state a description of the problem and what it is ab"
@@ -81,7 +81,7 @@ export default function Questionform() {
         <div className="w-3/4 flex justify-start items-start">
           <button
             className="border-none px-16 rounded-md py-4
-     bg-[#2e3039] text-[#fff]"
+     bg-[#fff] text-[#1b1a1a]"
           >
             Send a question
           </button>

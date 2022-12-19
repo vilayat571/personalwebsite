@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
+import Message from "../../components/Signup/Message";
 import { signIn } from "../../redux/reducers/sigininReducer";
-import { useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 
 interface ISubmit {
   (e: React.FormEvent<HTMLFormElement>): any;
@@ -38,46 +39,31 @@ export default function Signform(props: ISignForm) {
 
   const navigate = useNavigate();
 
-  const details = localStorage.getItem("userDetails");
+  const data = useAppSelector((state: RootState) => state.signinReducer.data);
+
+  console.log("Data", data, typeof data);
+
   const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(signIn(form));
-    /* if (
-      form.email.indexOf("@gmail.com") !== -1 &&
-      form.password !== "" &&
-      form.email.length > 10
-    ) {
+    if (form.email.indexOf("@gmail.com") !== -1 && form.password !== "") {
       dispatch(signIn(form));
-      if (
-        details &&
-        JSON.parse(details).detail === "No active account found with the given credentials"
-      ) {
-        setMessage("email or password is wrong");
+      if (typeof data === "number") {
+        setMessage("email is wrong");
         setTimeout(() => {
           setMessage("");
         }, 1000);
-      } else if (form.password.length < 8) {
-        setMessage("password must be from 8 symbol");
-        setTimeout(() => {
-          setMessage("");
-        }, 1000);
-      } else if (
-        localStorage.getItem("jwt") !== null &&
-        localStorage.getItem("jwt") !== undefined
-      ) {
-        setMessage("");
-        navigate("/");
       }
-    } 
-    
-    else {
+      else{
+        navigate('/')
+      } 
+    } else {
       setMessage("@ must have");
       setTimeout(() => {
         setMessage("");
       }, 1000);
-    } */
+    }
   };
-
 
   return (
     <>
@@ -106,16 +92,19 @@ export default function Signform(props: ISignForm) {
         />
         <Signinbutton text="Sign in" />
       </form>
-      <span
-        className={
-          message.length > 1
-            ? "text-white  text-left absolute px-8 py-3 bg-red-500 right-4 bottom-8 m-4 text-sm"
-            : "hidden"
-        }
-      >
-        {message}
-      </span>
+      <Message message={message} />
     </>
   );
 }
 /* sign in and sign up */
+/*  if (typeof data === "number") {
+        setMessage("email or password is wrong");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      } else if (form.password.length < 8) {
+        setMessage("password must be from 8 symbol");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      } */

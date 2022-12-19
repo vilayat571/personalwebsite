@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ISignup } from "../../parts/Signup/Signupform";
+import { ISignup } from "../../parts/Signup/Formnavigate";
 
 interface IInitialState {
   data: any;

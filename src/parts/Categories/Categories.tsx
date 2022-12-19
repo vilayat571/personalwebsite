@@ -1,5 +1,5 @@
 import Button from "../../components/Categories/Button";
-import { RootState, useAppSelector } from "../../redux/store";
+
 
 export interface ICategory {
   id: number;
