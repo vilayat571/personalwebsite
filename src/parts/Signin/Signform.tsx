@@ -41,7 +41,7 @@ export default function Signform(props: ISignForm) {
 
   const data = useAppSelector((state: RootState) => state.signinReducer.data);
 
-  console.log("Data", data, typeof data);
+//  console.log("Data", data, typeof data);
 
   const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,6 +49,7 @@ export default function Signform(props: ISignForm) {
     if (form.email.indexOf("@") !== -1 && form.password.length > 8) {
       dispatch(signIn(form));
         navigate("/");
+        setMessage('password')
     } 
   };
 

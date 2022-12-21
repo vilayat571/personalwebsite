@@ -1,7 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import React from 'react'
+
+export default function Account() {
+  return (
+    <div>
+      <h1>Account</h1>
+    </div>
+  )
+}
+
+
+/* import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../atoms/Navbar/Logo";
 import { useEffect, useState } from "react";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 export default function Account() {
   const navigate = useNavigate();
@@ -36,7 +46,7 @@ export default function Account() {
         <div className="ml-6 mt-10 mb-8">
           <Logo />
         </div>
-
+{name},{email},{}
         <div className="h-full flex flex-col justify-between">
           <div className="flex flex-col gap-4 mx-6">
             <Link to={"/"} className="text-[#a9adc1] text-lg">
@@ -60,3 +70,4 @@ export default function Account() {
     </div>
   );
 }
+ */

@@ -1,4 +1,3 @@
-import { ICategory } from "../../parts/Categories/Categories";
 
 interface IButon {
   category: string;

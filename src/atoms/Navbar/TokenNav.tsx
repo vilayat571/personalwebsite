@@ -8,7 +8,6 @@ export default function TokenNav() {
   const details = localStorage.getItem("userDetails");
 
   useEffect(() => {
-  
     if (details) {
       setName(
         JSON.parse(details).user_details &&
@@ -16,13 +15,15 @@ export default function TokenNav() {
       );
     }
     setToken(localStorage.getItem("jwt"));
-  }, []);
+  }, [details]);
 
   return (
     <>
       {token && token.length > 20 ? (
         <div className="">
-          <Link to={"/account"}>{details ?  JSON.parse(details).user_details.username : ''}</Link>
+          <Link to={"/account"}>
+            {name}
+          </Link>
         </div>
       ) : (
         <Link
