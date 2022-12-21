@@ -5,9 +5,10 @@ export default function TokenNav() {
   const [token, setToken] = useState<string | null>(null);
 
   const [name, setName] = useState<string>("");
+  const details = localStorage.getItem("userDetails");
 
   useEffect(() => {
-    const details = localStorage.getItem("userDetails");
+  
     if (details) {
       setName(
         JSON.parse(details).user_details &&
@@ -21,7 +22,7 @@ export default function TokenNav() {
     <>
       {token && token.length > 20 ? (
         <div className="">
-          <Link to={"/account"}>{name}</Link>
+          <Link to={"/account"}>{details ?  JSON.parse(details).user_details.username : ''}</Link>
         </div>
       ) : (
         <Link
@@ -29,7 +30,7 @@ export default function TokenNav() {
      rounded-md text-sm bg-[#fff] text-[#000]"
           to={"/signin"}
         >
-         Sign in
+          Sign in
         </Link>
       )}
     </>

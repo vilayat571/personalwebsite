@@ -45,24 +45,11 @@ export default function Signform(props: ISignForm) {
 
   const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(signIn(form));
-    if (form.email.indexOf("@gmail.com") !== -1 && form.password !== "") {
+
+    if (form.email.indexOf("@") !== -1 && form.password.length > 8) {
       dispatch(signIn(form));
-      if (typeof data === "number") {
-        setMessage("email is wrong");
-        setTimeout(() => {
-          setMessage("");
-        }, 1000);
-      }
-      else{
-        navigate('/')
-      } 
-    } else {
-      setMessage("@ must have");
-      setTimeout(() => {
-        setMessage("");
-      }, 1000);
-    }
+        navigate("/");
+    } 
   };
 
   return (
@@ -96,15 +83,3 @@ export default function Signform(props: ISignForm) {
     </>
   );
 }
-/* sign in and sign up */
-/*  if (typeof data === "number") {
-        setMessage("email or password is wrong");
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      } else if (form.password.length < 8) {
-        setMessage("password must be from 8 symbol");
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      } */

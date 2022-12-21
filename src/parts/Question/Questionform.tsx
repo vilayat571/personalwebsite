@@ -81,7 +81,7 @@ export default function Questionform() {
         <div className="w-3/4 flex justify-start items-start">
           <button
             className="border-none px-16 rounded-md py-4
-     bg-[#fff] text-[#1b1a1a]"
+     bg-[#2e3039] text-[#a9adc1]"
           >
             Send a question
           </button>

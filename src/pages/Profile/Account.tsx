@@ -40,9 +40,6 @@ export default function Account() {
         <div className="h-full flex flex-col justify-between">
           <div className="flex flex-col gap-4 mx-6">
             <Link to={"/"} className="text-[#a9adc1] text-lg">
-              Questions
-            </Link>
-            <Link to={"/"} className="text-[#a9adc1] text-lg">
               Watch list
             </Link>
             <Link to={"/question"} className="text-[#a9adc1] text-lg">
@@ -58,20 +55,6 @@ export default function Account() {
               Sign out
             </button>
           </div>
-         {/*  
-         <div className="mb-10 ml-6">
-            {token && token.length > 20 && (
-              <div className="flex flex-col gap-1 text-white items-start">
-                <div className="flex text-[40px]  items-end ">
-                  <PermIdentityIcon fontSize="inherit" />
-                  <span className="text-lg ">{name}</span>
-                </div>
-
-                <span className="text-[#a9adc1] ml-1">{email}</span>
-              </div>
-            )}
-          </div> 
-          */}
         </div>
       </div>
     </div>

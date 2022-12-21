@@ -5,7 +5,7 @@ interface IinitialState {
   data: any;
   loading: boolean;
   error: null | undefined | string;
-};
+}
 
 const initialState: IinitialState = {
   data: "",
@@ -16,26 +16,23 @@ const initialState: IinitialState = {
 export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
   const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
 
-  function Reers(res:any){
-    if(res.status===200){
-      return res.json()
-    }
-    else{
-      return res.status
+  function Reers(res: any) {
+    if (res.status === 200) {
+      return res.json();
+    } else {
+      return res.status;
     }
   }
 
   return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    credentials: "include",
     body: JSON.stringify({
       email: data.email,
       password: data.password,
     }),
   }).then((res) => Reers(res));
-
-
-
 });
 
 const signinReducer = createSlice({
@@ -50,9 +47,9 @@ const signinReducer = createSlice({
     builder.addCase(signIn.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      state.data=action.payload;
+      state.data = action.payload;
       const access = action.payload.access;
-      access !== undefined && localStorage.setItem("jwt", access);
+      localStorage.setItem("jwt", access);
       localStorage.setItem("userDetails", JSON.stringify(action.payload));
     });
     builder.addCase(signIn.rejected, (state, action) => {

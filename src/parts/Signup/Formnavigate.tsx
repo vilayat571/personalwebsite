@@ -45,7 +45,15 @@ export default memo(function Formnavigate(props: IFormnavigate) {
     e.preventDefault();
     if (form.email.indexOf("@") !== -1 && form.password) {
       dispatch(signUpUser(form));
-      navigate("/signin");
+
+      if (form.password.length < 8) {
+        props.setMessage("password ");
+        setTimeout(() => {
+          props.setMessage("");
+        }, 1000);
+      } else {
+        navigate("/signin");
+      }
     } else {
       props.setMessage("@ must have");
       setTimeout(() => {

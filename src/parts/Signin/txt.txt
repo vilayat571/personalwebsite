@@ -1,21 +1,22 @@
-else {
-        /* else */
-        dispatch(signIn(form));
+ if (form.email.indexOf("@") !== -1 && form.password.length > 8) {
+      dispatch(signIn(form));
 
-        /* if */
-        if (
-          localStorage.getItem("jwt") !== null &&
-          localStorage.getItem("jwt") !== undefined
-        ) {
-          setForm({
-            email: "",
-            password: "",
-          });
-          navigate("/");
-        } else {
-          setMessage("email or password is wrong");
-          setTimeout(() => {
-            setMessage("");
-          }, 1000);
-        }
-      }
+    } 
+
+
+    else if (form.password.length < 8) {
+      setMessage("password must contain minimun 8 symbol");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    
+    }
+
+    else if(form.email.indexOf("@") === -1){
+      setMessage("email must contain @ symbol");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    }
+
+    (typeof data === "number")

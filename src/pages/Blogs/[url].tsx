@@ -34,8 +34,8 @@ export default function SingleBlog() {
         </Helmet>
         {blog ? (
           <div className=" w-full flex mt-24 flex-col justify-between items-center ">
-            <div className="w-2/3 mb-8  flex justify-between items-center">
-              <div className=" text-left mb-0 text-3xl text-[#fff] ">
+            <div className="xl:w-2/3 lg:w-2/3 md:w-full sm:w-full mb-8  flex justify-between items-center">
+              <div className=" text-left mb-0 text-2xl text-[#fff] ">
                 {blog.title}
               </div>
 
@@ -44,16 +44,17 @@ export default function SingleBlog() {
               </div>
             </div>
             <img
-              className=" w-2/3 h-[600px] object-cover rounded-md border-0"
+              className=" xl:w-2/3 lg:w-2/3 md:w-auto sm:w-auto 
+              sm:h-auto md:h-auto lg:h-[600px] xl:h-[600px] object-cover rounded-md border-0"
               src={blog.image}
               alt=""
             />
-            <div className=" w-2/3 text-2xl mt-6 text-[#a9adc1]">
+            <div className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-2xl mt-6 text-[#a9adc1]">
               {blog.description}
             </div>
 
             <div
-              className=" w-2/3 text-lg mt-4 text-white"
+              className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-lg mt-4 text-white"
               dangerouslySetInnerHTML={{ __html: blog.body }}
             />
           </div>
@@ -61,7 +62,9 @@ export default function SingleBlog() {
           ":Loading.."
         )}
         <div className=" mt-24 flex justify-center items-center">
-          <div className="w-2/3 flex gap-20 items-start border-t py-8 border-[#4b4c53]">
+          <div className="xl:w-2/3 lg:w-2/3 md:w-full sm:w-full 
+           flex sm:flex-col xl:flex-row lg:flex-row md:flex-col gap-x-20
+           gap-y-8 items-start border-t py-8 border-[#4b4c53]">
             <img
               className="w-[140px] border-0 object-cover rounded-3xl"
               src={profile}
