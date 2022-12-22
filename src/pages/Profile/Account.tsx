@@ -35,7 +35,7 @@ export default function Account() {
         <div className="ml-6 mt-10 mb-8">
           <Logo />
         </div>
-
+        {name},{email},{token}
         <div className="h-full flex flex-col justify-between">
           <div className="flex flex-col gap-4 mx-6">
             <Link to={"/"} className="text-[#a9adc1] text-lg">
