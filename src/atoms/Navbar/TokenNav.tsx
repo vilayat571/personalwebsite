@@ -27,11 +27,11 @@ export default function TokenNav() {
         </div>
       ) : (
         <Link
-          className=" tracking-[0.6px] px-6 py-2 border-0
-     rounded-md text-sm bg-[#fff] text-[#000]"
+          className=" tracking-[0.6px] px-7 py-3 border-0
+     rounded-full text-sm bg-[#2e3039] text-[#fff]"
           to={"/signin"}
         >
-          Sign in
+          Get started
         </Link>
       )}
     </>

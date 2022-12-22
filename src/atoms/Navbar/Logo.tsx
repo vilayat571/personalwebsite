@@ -9,7 +9,7 @@ export default function Logo() {
       >
         vilayat
       </span>
-      safar
+      safarov
     </Link>
   );
 }

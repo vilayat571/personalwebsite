@@ -4,7 +4,7 @@ import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
 import Message from "../../components/Signup/Message";
 import { signIn } from "../../redux/reducers/sigininReducer";
-import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
+import {  useAppDispatch } from "../../redux/store";
 
 interface ISubmit {
   (e: React.FormEvent<HTMLFormElement>): any;
@@ -39,7 +39,7 @@ export default function Signform(props: ISignForm) {
 
   const navigate = useNavigate();
 
-  const data = useAppSelector((state: RootState) => state.signinReducer.data);
+ // const data = useAppSelector((state: RootState) => state.signinReducer.data);
 
 //  console.log("Data", data, typeof data);
 
