@@ -16,23 +16,15 @@ const initialState: IinitialState = {
 export const signIn = createAsyncThunk("/fetchToken", async (data: ISignin) => {
   const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
 
-  function Reers(res: any) {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return res.status;
-    }
-  }
-
-  return fetch(url, {
+  return await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
+    credentials:'include',
     body: JSON.stringify({
       email: data.email,
       password: data.password,
     }),
-  }).then((res) => Reers(res));
+  }).then(res=>res.json());
 });
 
 const signinReducer = createSlice({
@@ -48,9 +40,9 @@ const signinReducer = createSlice({
       state.loading = false;
       state.error = null;
       state.data = action.payload;
-      const access = action.payload.access;
-      localStorage.setItem("jwt", access);
-      localStorage.setItem("userDetails", JSON.stringify(action.payload));
+
+      localStorage.setItem("jwt", action.payload.access);
+      localStorage.setItem("userDetails", JSON.stringify(action.payload.user_details));
     });
     builder.addCase(signIn.rejected, (state, action) => {
       state.loading = false;

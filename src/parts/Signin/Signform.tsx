@@ -4,7 +4,7 @@ import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
 import Message from "../../components/Signup/Message";
 import { signIn } from "../../redux/reducers/sigininReducer";
-import {  useAppDispatch } from "../../redux/store";
+import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 
 interface ISubmit {
   (e: React.FormEvent<HTMLFormElement>): any;
@@ -39,18 +39,38 @@ export default function Signform(props: ISignForm) {
 
   const navigate = useNavigate();
 
- // const data = useAppSelector((state: RootState) => state.signinReducer.data);
-
-//  console.log("Data", data, typeof data);
+  const data = useAppSelector((state: RootState) => state.signinReducer.data);
+  const loading = useAppSelector((state: RootState) => state.signinReducer);
 
   const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (form.email.indexOf("@") !== -1 && form.password.length > 8) {
+    if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
       dispatch(signIn(form));
-        navigate("/");
-        setMessage('password')
-    } 
+      if (localStorage.getItem("jwt") !== "undefined") {
+        setMessage("success");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+        navigate('/')
+      } else {
+        setMessage("email is wrong");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      }
+    } else {
+      if (form.password.length < 8) {
+        setMessage("password length have to min 8 symbol");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      } else if (form.email.indexOf("@") === -1) {
+        setMessage("email must contain @");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      }
+    }
   };
 
   return (

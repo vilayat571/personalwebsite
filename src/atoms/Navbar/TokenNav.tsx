@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LoginIcon from '@mui/icons-material/Login';
 
 export default function TokenNav() {
   const [token, setToken] = useState<string | null>(null);
@@ -8,30 +9,32 @@ export default function TokenNav() {
   const details = localStorage.getItem("userDetails");
 
   useEffect(() => {
-    if (details) {
-      setName(
-        JSON.parse(details).user_details &&
-          JSON.parse(details).user_details.username
-      );
-    }
-    setToken(localStorage.getItem("jwt"));
-  }, [details]);
+    fetch(`https://api.vilayatsafarov.com/api/v1/account/wish-list/${  details && JSON.parse(details).id}`,
+    {
+        method:"GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
 
   return (
     <>
-      {token && token.length > 20 ? (
-        <div className="">
-          <Link to={"/account"}>
-            {name}
-          </Link>
+      {details && JSON.parse(details).username ? (
+        <div className="text-white ">
+          <Link to={"/account"}>{details && JSON.parse(details).username}</Link>
         </div>
       ) : (
         <Link
-          className=" tracking-[0.6px] px-7 py-3 border-0
-     rounded-full text-sm bg-[#2e3039] text-[#fff]"
+          className=" text-lg text-white flex items-center "
           to={"/signin"}
         >
-          Get started
+          <span className="mr-1">Sign in</span>
+           <LoginIcon fontSize='medium' />
         </Link>
       )}
     </>

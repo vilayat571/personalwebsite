@@ -5,7 +5,7 @@ import Footermain from "../atoms/Layout/Footermain";
 import Footertext from "../atoms/Layout/Footertext";
 import Navbar from "../components/Navbar/Navbar";
 
-interface ILayout {
+export interface ILayout {
   children: ReactNode;
 }
 

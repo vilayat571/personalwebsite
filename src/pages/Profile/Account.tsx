@@ -1,14 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../atoms/Navbar/Logo";
 import { useEffect, useState } from "react";
+import Profilelayout from "../../layout/Profilelayout";
 
 export default function Account() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    localStorage.clear();
-    navigate("/");
-  };
   const [token, setToken] = useState<string | null>(null);
 
   const [name, setName] = useState<string>("");
@@ -30,32 +25,10 @@ export default function Account() {
   }, []);
 
   return (
-    <div className="w-full h-screen ">
-      <div className=" border-r border-[#4b4c53] flex flex-col fixed h-screen w-1/5">
-        <div className="ml-6 mt-10 mb-8">
-          <Logo />
-        </div>
-        {name},{email},{token}
-        <div className="h-full flex flex-col justify-between">
-          <div className="flex flex-col gap-4 mx-6">
-            <Link to={"/"} className="text-[#a9adc1] text-lg">
-              Watch list
-            </Link>
-            <Link to={"/question"} className="text-[#a9adc1] text-lg">
-              Ask question
-            </Link>
-            <Link to={"/"} className="text-[#a9adc1] text-lg">
-              Go back
-            </Link>
-            <button
-              onClick={() => handleClick()}
-              className="text-[#a9adc1] text-lg text-left"
-            >
-              Sign out
-            </button>
-          </div>
-        </div>
+    <Profilelayout>
+      <div className="text-white text-xl col-span-4  p-12">
+        <h1>Account main div</h1>
       </div>
-    </div>
+    </Profilelayout>
   );
 }
