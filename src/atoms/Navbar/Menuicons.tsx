@@ -1,7 +1,7 @@
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 
-interface IMenuicons {
+export interface IMenuicons {
   mode: boolean;
   changeMode(): void;
 };

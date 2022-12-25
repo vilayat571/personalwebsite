@@ -9,8 +9,12 @@ import Account from "./pages/Profile/Account";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup/Index";
 import Termsofuse from "./pages/Termsofuse/Termsofuse";
+import Myquestions from "./pages/Profile/Myquestions";
+import Watchlist from "./pages/Profile/Watchlist";
 
 function App() {
+
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -24,6 +28,8 @@ function App() {
         <Route path="/question" element={<Question />} />
         <Route path="/account" element={<Account />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/account/questions" element={<Myquestions />} />
+        <Route path="/account/watchlist" element={<Watchlist />} />
       </Routes>
     </BrowserRouter>
   );

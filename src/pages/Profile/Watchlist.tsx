@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function Draft() {
+export default function Watchlist() {
   useEffect(() => {
     const details = localStorage.getItem("userDetails");
 
