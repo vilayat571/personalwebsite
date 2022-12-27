@@ -3,7 +3,7 @@ import Tolink from "../Tolink";
 
 export default memo(function Tolinkmain() {
   return (
-    <div className="flex items-start mt-6 w-full">
+    <div className="flex text-lg items-start mt-6 w-full">
       <Tolink text={"See more"} />
     </div>
   );

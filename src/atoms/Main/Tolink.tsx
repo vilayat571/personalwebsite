@@ -11,7 +11,7 @@ export default function Tolink(props: ITolink) {
       to={"/blogs"}
       className="flex text-white justify-between items-center"
     >
-      <span className="mr-6 text-lg">{props.text}</span>
+      <span className="mr-6 text-xl">{props.text}</span>
       <button
         className="transition-all transform text-white
 w-14 h-14 flex justify-center items-center border-2 p-1 hover:border-white rounded-full border-[#494a51] "

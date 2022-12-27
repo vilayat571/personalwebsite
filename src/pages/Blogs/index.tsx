@@ -70,8 +70,7 @@ export default function Blogs() {
   const [list, setList] = useState<any>([]);
 
   const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
-    setList([...list, id]);
-    dispatch(addToWisList(list));
+  dispatch(addToWisList([...list, id]));
   };
 
   return (

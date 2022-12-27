@@ -14,7 +14,7 @@ const initialState: IAdd = {
 
 export const addToWisList = createAsyncThunk(
   "/addtoList",
-  async (list: Array<number>) => {
+  async (list: any) => {
     const url = "https://api.vilayatsafarov.com/api/v1/account/wish-list/";
 
     const token = localStorage.getItem("jwt");

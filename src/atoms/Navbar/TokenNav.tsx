@@ -26,7 +26,7 @@ export default function TokenNav() {
     <>
       {details && JSON.parse(details).username ? (
         <div className="text-white ">
-          <Link to={"/account"}>{details && JSON.parse(details).username}</Link>
+          <Link to={"/account/watchlist"}>{details && JSON.parse(details).username}</Link>
         </div>
       ) : (
         <Link

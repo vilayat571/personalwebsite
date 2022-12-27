@@ -5,7 +5,6 @@ import Blogs from "./pages/Blogs";
 import Singleblog from "./pages/Blogs/[url]";
 import Question from "./pages/Question";
 import Main from "./pages/Main/Main";
-import Account from "./pages/Profile/Account";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup/Index";
 import Termsofuse from "./pages/Termsofuse/Termsofuse";
@@ -26,7 +25,6 @@ function App() {
         <Route path="/termsofuse" element={<Termsofuse />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/question" element={<Question />} />
-        <Route path="/account" element={<Account />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/account/questions" element={<Myquestions />} />
         <Route path="/account/watchlist" element={<Watchlist />} />
