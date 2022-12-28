@@ -57,12 +57,13 @@ export default function Signform(props: ISignForm) {
       }
     } else {
       if (form.password.length < 8) {
-        setMessage("password length have to min 8 symbol");
+        setMessage("password must be longer than 8");
+
         setTimeout(() => {
           setMessage("");
         }, 2000);
       } else if (form.email.indexOf("@") === -1) {
-        setMessage("email must contain @");
+        setMessage("email must have @");
         setTimeout(() => {
           setMessage("");
         }, 2000);
