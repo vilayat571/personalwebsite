@@ -16,7 +16,7 @@ export default function Contact() {
           content="Ask a question about : Interview | Software Development | Front End Development"
         />
       </Helmet>
-      <div className="w-full h-auto ">
+      <div className="w-full h-auto mt-24 ">
         <Questionform />
       </div>
     </Layout>

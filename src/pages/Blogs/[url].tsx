@@ -33,7 +33,7 @@ export default function SingleBlog() {
           <title>The Vilayat Safarov's blog</title>
         </Helmet>
         {blog ? (
-          <div className=" w-full flex mt-24 flex-col justify-between items-center ">
+          <div className=" w-full flex mt-44 flex-col justify-between items-center ">
             <div className="xl:w-2/3 lg:w-2/3 md:w-full sm:w-full mb-8  flex justify-between items-center">
               <div className=" text-left mb-0 text-2xl text-[#fff] ">
                 {blog.title}

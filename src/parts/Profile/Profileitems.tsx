@@ -19,12 +19,6 @@ export default function Profileitems() {
         My questions
       </Link>
       <Link
-        to={"/account/watchlist"}
-        className="text-[#a9adc1] lg:text-lg md:text-normal sm:text-lg xl:text-lg"
-      >
-        Watch list
-      </Link>
-      <Link
         to={"/question"}
         className="text-[#a9adc1] lg:text-lg md:text-normal sm:text-lg xl:text-lg"
       >

@@ -24,7 +24,7 @@ export default React.memo(function Layout(props: ILayout) {
   }
 
   return (
-    <div className="sm:pt-10 md:pt-10 lg:pt-16 xl:pt-16 flex flex-col items-center">
+    <div className=" flex flex-col items-center">
       <Navbar />
       <Children parentNode={props.children} />
       <Diver />

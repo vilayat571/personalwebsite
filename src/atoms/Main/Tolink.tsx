@@ -9,7 +9,7 @@ export default function Tolink(props: ITolink) {
   return (
     <Link
       to={"/blogs"}
-      className="flex text-white justify-between items-center"
+      className="flex text-white justify-between -z-10 items-center"
     >
       <span className="mr-6 text-xl">{props.text}</span>
       <button

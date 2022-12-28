@@ -21,7 +21,7 @@ export default memo(function Main() {
           content="Vilayat Safarov - Software Developer | Web | SEO"
         />
       </Helmet>
-      <div className="flex flex-col w-full h-auto">
+      <div className="flex flex-col w-full h-auto mt-24">
         <Header />
         <Brief />
         <Maincomp />

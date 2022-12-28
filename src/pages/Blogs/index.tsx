@@ -82,7 +82,7 @@ export default React.memo(function Blogs() {
           content="Vilayat Safarov - Software Developer | Web | SEO"
         />
       </Helmet>
-      <div className="flex mt-16 gap-12 flex-col items-center w-full h-auto">
+      <div className="flex mt-48 gap-12 flex-col items-center w-full h-auto">
         <Searhcbar query={query} handleChange={(e) => handleChange(e)} />
         <Filterdiv>
           <Allfilter handleClick={() => handleClick(-1)} />

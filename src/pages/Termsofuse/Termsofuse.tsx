@@ -5,7 +5,7 @@ import Layout from "../../layout/Layout";
 export default function Termsofuse() {
   return (
     <Layout>
-      <div className="flex flex-col pt-24 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
+      <div className="flex flex-col pt-24 mt-28 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
         <Imgtitle />
         <Contentdiv
           title={"Mission"}

@@ -6,7 +6,7 @@ export default function Navigateback() {
   return (
     <button
       onClick={() => navigate(-1)}
-      className="text-left text-white lg:text-lg xl:block md:hidden lg:block  md:text-normal sm:text-lg xl:text-lg"
+      className="text-left text-white "
     >
       <span className="mr-3">Go back</span>
       <RedoIcon fontSize="medium" />

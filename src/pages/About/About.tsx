@@ -12,14 +12,15 @@ export default function About() {
         <title>About Vilayat Safarov</title>
         <meta
           name="description"
-          content="Software developer, content creator on Stackoverflow and Medium in JavaScript, TypeScript and other programming languages."
+          content="Software developer, content creator on Stackoverflow and Medium
+           in JavaScript, TypeScript and other programming languages."
         />
         <meta
           name="keywords"
           content="Vilayat Safarov, Vilayet Safarov, Software Developer"
         />
       </Helmet>
-      <div className="h-auto flex flex-col mt-10 w-full">
+      <div className="h-auto flex flex-col mt-44 w-full">
         <Headofme />
         <Bornme />
         <Footme />
