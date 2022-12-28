@@ -1,14 +1,9 @@
-import LogoutIcon from "@mui/icons-material/Logout";
-import { Link, useNavigate } from "react-router-dom";
-import RedoIcon from "@mui/icons-material/Redo";
+import { Link} from "react-router-dom";
+import Logout from "./Logout";
+import Navigateback from "./Navigateback";
 
 export default function Profileitems() {
-  const navigate = useNavigate();
 
-  const handleClick = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   return (
     <div
@@ -35,20 +30,8 @@ export default function Profileitems() {
       >
         Ask question
       </Link>
-      <button
-        onClick={() => navigate(-1)}
-        className="text-left text-white lg:text-lg xl:block md:hidden lg:block sm:hidden  md:text-normal sm:text-lg xl:text-lg"
-      >
-        <span className="mr-3">Go back</span>
-        <RedoIcon fontSize="medium" />
-      </button>
-      <button
-        onClick={() => handleClick()}
-        className="text-left text-white lg:text-lg md:text-normal sm:text-lg xl:text-lg"
-      >
-        <span className="mr-3">Sign out</span>
-        <LogoutIcon fontSize="medium" />
-      </button>
+    <Navigateback />
+      <Logout />
     </div>
   );
 }

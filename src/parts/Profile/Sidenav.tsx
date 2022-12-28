@@ -6,7 +6,6 @@ import Ressidenav from "./Ressidenav";
 
 interface IFunc {
   changeMode(): void;
-  
 }
 
 export default function Sidenav() {

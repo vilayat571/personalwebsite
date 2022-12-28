@@ -3,12 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
-import { addToWisList } from "../../redux/reducers/addtolistReducer";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
 import { getCategories } from "../../redux/reducers/allcategoriesReducer";
 import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Categories from "../../parts/Categories/Categories";
+import Searhcbar from "../../parts/Blogs/Searhcbar";
+import Loadmore from "../../components/Blogs/Loadmore";
 
 interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -46,7 +46,7 @@ export default function Blogs() {
       e.preventDefault();
       setQuery(e.target.value);
     },
-    []
+    [query]
   );
 
   const handleClick: IBlogs["handleClick"] = useCallback(
@@ -67,36 +67,23 @@ export default function Blogs() {
       return item.title.toLowerCase().indexOf(query.toLocaleLowerCase()) !== -1;
     });
 
-  const [list, setList] = useState<any>([]);
-
-  const addtoWatchlist: IBlogs["addtoWatchlist"] = (id: number) => {
-  dispatch(addToWisList([...list, id]));
-  };
-
   return (
     <Layout>
       <Helmet>
         <title>The Vilayat Safarov blogs</title>
       </Helmet>
       <div className="flex mt-16 gap-12 flex-col items-center w-full h-auto">
-        <input
-          onChange={(e) => handleChange(e)}
-          value={query}
-          type="text"
-          placeholder="Search a blog"
-          className="w-2/3 h-14 outline-none text-white font-thin indent-6 border border-[#4b4c53] rounded-full bg-transparent"
-        />
+        <Searhcbar query={query} handleChange={(e) => handleChange(e)} />
 
         <div className="flex flex-col mt-6 mb-4 gap-5 text-lg">
-          <h1 className=" pl-3 w-full flex items-center text-left tracking-[0.6px] text-[#a9adc1]">
-            Filter blogs by category
-          </h1>
-          <div className=" w-full gap-3 grid grid-cols-7">
+              <div className=" w-full gap-3 grid xl:grid-cols-9 lg:grid-cols-7
+           md:grid-cols-5 sm:grid-cols-3 ">
             <button
               onClick={() => handleClick(-1)}
-              className="rounded-full text-center tracking-[0.4px] py-3 px-6 text-sm text-white bg-[#2e3039]"
+              className="rounded-sm text-center tracking-[0.2px] py-3 px-6
+               text-sm text-white bg-[#2e3039]"
             >
-              all blogs
+              all 
             </button>
             {categories
               ? categories.map((category: ICategory, index: number) => {
@@ -134,13 +121,6 @@ export default function Blogs() {
                   <div className=" mt-0 flex flex-col">
                     <div className="text-xl  flex justify-between items-center text-[#a9adc1] mt-6">
                       <span>{blog.title}</span>
-                      <button
-                        onClick={() => addtoWatchlist(blog.id)}
-                        className=" px-2 py-2 text-sm bg-[#2e3039] text-white
-                          rounded-full "
-                      >
-                        <FavoriteBorderIcon fontSize="small" />
-                      </button>
                     </div>
 
                     <div
@@ -158,14 +138,9 @@ export default function Blogs() {
             </h1>
           )}
         </div>
-        <div className="py-8 flex justify-center items-center text-white  w-full h-10 ">
-          <button
-            onClick={() => handleLimit()}
-            className="border border-gray-500 rounded-full text-gray-300 px-16 py-4"
-          >
-            Load more + (12)
-          </button>
-        </div>
+     
+          <Loadmore handleLimit={() => handleLimit()} />
+      
       </div>
     </Layout>
   );

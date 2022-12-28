@@ -1,3 +1,3 @@
 export default function Poweredtext() {
-  return <p>All rights reserved by © Vilayat Safarov 2022</p>;
+  return <p className="text-white "> Powered by © Vilayat Safarov 2022</p>;
 }

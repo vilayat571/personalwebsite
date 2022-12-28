@@ -2,7 +2,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface ITotop {
   handleClick(): void;
-};
+}
 
 export default function Totop() {
   const handleClick: ITotop["handleClick"] = () => {

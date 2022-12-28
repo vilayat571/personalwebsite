@@ -18,14 +18,15 @@ export default function Question() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setQuestions(data));
-  }, []);
+  }, [details]);
+
 
   return (
     <div className="grid grid-cols-1 gap-y-6 pb-12">
-      {questions !== null &&
+      {questions !== null && 
         questions.results.map((question: IQuestion, index: number) => {
           return <Singlequestion question={question} key={index} />;
-        })}
+        })} 
     </div>
   );
 }

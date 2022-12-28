@@ -7,7 +7,7 @@ export default memo(function Headercontent() {
       className="col-span-1 flex xl:items-center lg:items-center 
     md:items-start sm:items-start"
     >
-    <Headercontentmain />
+      <Headercontentmain />
     </div>
   );
 });

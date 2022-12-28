@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoginIcon from '@mui/icons-material/Login';
 
 export default function TokenNav() {
-  const [token, setToken] = useState<string | null>(null);
 
-  const [name, setName] = useState<string>("");
   const details = localStorage.getItem("userDetails");
 
   useEffect(() => {
@@ -20,7 +18,7 @@ export default function TokenNav() {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
-  }, []);
+  }, [details]);
 
   return (
     <>

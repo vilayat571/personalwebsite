@@ -14,11 +14,11 @@ export default memo(function Main() {
         <title>Vilayat Safarov</title>
         <meta
           name="description"
-          content="Software developer, content creator on Stackoverflow and Medium in JavaScript, TypeScript and other programming languages."
+          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
         />
         <meta
           name="keywords"
-          content="Vilayat Safarov, Vilayet Safarov, Software Developer"
+          content="Vilayat Safarov - Software Developer | Web | SEO"
         />
       </Helmet>
       <div className="flex flex-col w-full h-auto">

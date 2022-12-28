@@ -1,7 +1,6 @@
 import ProfileChildren from "../atoms/Layout/ProfileChildren";
 import Sidenav from "../parts/Profile/Sidenav";
 import { ILayout } from "./Layout";
-import React, { ReactNode, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Profilelayout(props: ILayout) {
@@ -9,18 +8,18 @@ export default function Profilelayout(props: ILayout) {
 
   const location = useLocation();
 
-/*   useEffect(() => {
     if (
       localStorage.getItem("jwt") === null ||
-      localStorage.getItem("jwt") === undefined ||
-      location.pathname === "/account"
+      localStorage.getItem("jwt") === undefined
     ) {
-      navigate("/");
+      location.pathname.indexOf('account')!==-1 && navigate("/");
+    } else if (
+      localStorage.getItem("jwt") !== null &&
+      localStorage.getItem("jwt") !== undefined
+    ) {
+      console.log("");
     }
-    else{
-      
-    }
-  }, []); */
+
 
   return (
     <div
