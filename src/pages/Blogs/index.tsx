@@ -48,7 +48,7 @@ export default React.memo(function Blogs() {
       e.preventDefault();
       setQuery(e.target.value);
     },
-    [query]
+    []
   );
 
   const handleClick: IBlogs["handleClick"] = useCallback(
