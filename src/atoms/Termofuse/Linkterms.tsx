@@ -5,7 +5,7 @@ export default function Linkterms() {
   return (
     <Link
     to={"/blogs"}
-    className="flex text-[#a9adc1] justify-between items-center"
+    className=" text-[#a9adc1] xl:flex lg:flex md:flex sm:hidden justify-between items-center"
   >
     <span className="mr-6 text-lg">Go back</span>
     <button
