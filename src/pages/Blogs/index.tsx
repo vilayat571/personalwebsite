@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { Iblog } from "../../components/Main/Recomendedblogs";
 import Layout from "../../layout/Layout";
 import { getBlogs } from "../../redux/reducers/allBlogsReducer";
@@ -9,6 +8,9 @@ import { RootState, useAppDispatch, useAppSelector } from "../../redux/store";
 import Categories from "../../parts/Categories/Categories";
 import Searhcbar from "../../parts/Blogs/Searhcbar";
 import Loadmore from "../../components/Blogs/Loadmore";
+import Allfilter from "../../atoms/Blogs/Allfilter";
+import Filterdiv from "../../components/Blogs/Filterdiv";
+import Filtereddata from "../../parts/Blogs/Filtereddata";
 
 interface IBlogs {
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -22,7 +24,7 @@ export interface ICategory {
   category_name: string;
 }
 
-export default function Blogs() {
+export default React.memo(function Blogs() {
   const dispatch = useAppDispatch();
 
   const [query, setQuery] = useState<string>("");
@@ -71,77 +73,36 @@ export default function Blogs() {
     <Layout>
       <Helmet>
         <title>The Vilayat Safarov blogs</title>
+        <meta
+          name="description"
+          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
+        />
+        <meta
+          name="keywords"
+          content="Vilayat Safarov - Software Developer | Web | SEO"
+        />
       </Helmet>
       <div className="flex mt-16 gap-12 flex-col items-center w-full h-auto">
         <Searhcbar query={query} handleChange={(e) => handleChange(e)} />
-
-        <div className="flex flex-col mt-6 mb-4 gap-5 text-lg">
-              <div className=" w-full gap-3 grid xl:grid-cols-9 lg:grid-cols-7
-           md:grid-cols-5 sm:grid-cols-3 ">
-            <button
-              onClick={() => handleClick(-1)}
-              className="rounded-sm text-center tracking-[0.2px] py-3 px-6
-               text-sm text-white bg-[#2e3039]"
-            >
-              all 
-            </button>
-            {categories
-              ? categories.map((category: ICategory, index: number) => {
-                  return (
-                    <Categories
-                      key={index}
-                      limit={limit}
-                      name={category.category_name}
-                      id={category.id}
-                      handleClick={() => handleClick(category.id)}
-                    />
-                  );
-                })
-              : ""}
-          </div>
-        </div>
-        <div
-          className={
-            filteredData.length > 0
-              ? "h-auto w-full grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-y-6  gap-x-12"
-              : "h-auto w-full grid grid-cols-3"
-          }
-        >
-          {filteredData.length > 0 ? (
-            filteredData.map((blog: Iblog, index: number) => {
+        <Filterdiv>
+          <Allfilter handleClick={() => handleClick(-1)} />
+          {categories
+            ? categories.map((category: ICategory, index: number) => {
               return (
-                <div className=" my-6 flex flex-col items-start" key={index}>
-                  <Link className="w-full" to={`/blogs/${blog.id}`}>
-                    <img
-                      className="rounded-lg  border-0 w-full h-[480px]"
-                      src={blog.image}
-                      alt=""
-                    />
-                  </Link>
-                  <div className=" mt-0 flex flex-col">
-                    <div className="text-xl  flex justify-between items-center text-[#a9adc1] mt-6">
-                      <span>{blog.title}</span>
-                    </div>
-
-                    <div
-                      style={{ lineHeight: "30px" }}
-                      className="line-clamp-2 mt-4 text-xl text-white "
-                      dangerouslySetInnerHTML={{ __html: blog.body }}
-                    />
-                  </div>
-                </div>
+                <Categories
+                  key={index}
+                  limit={limit}
+                  name={category.category_name}
+                  id={category.id}
+                  handleClick={() => handleClick(category.id)}
+                />
               );
             })
-          ) : (
-            <h1 className="text-center col-span-3 text-[#a9adc1]">
-              Don't have any blog
-            </h1>
-          )}
-        </div>
-     
-          <Loadmore handleLimit={() => handleLimit()} />
-      
+            : ""}
+        </Filterdiv>
+        <Filtereddata filteredData={filteredData} />
+        <Loadmore handleLimit={() => handleLimit()} />
       </div>
     </Layout>
   );
-}
+});
