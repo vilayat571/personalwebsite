@@ -47,7 +47,7 @@ export default memo(function Formnavigate(props: IFormnavigate) {
       dispatch(signUpUser(form));
 
       if (form.password.length < 8) {
-        props.setMessage("password ");
+        props.setMessage("password must be longer than 8 ");
         setTimeout(() => {
           props.setMessage("");
         }, 1000);
@@ -55,7 +55,7 @@ export default memo(function Formnavigate(props: IFormnavigate) {
         navigate("/signin");
       }
     } else {
-      props.setMessage("@ must have");
+      props.setMessage("email must have @");
       setTimeout(() => {
         props.setMessage("");
       }, 1000);
@@ -65,7 +65,8 @@ export default memo(function Formnavigate(props: IFormnavigate) {
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className="flex items-center gap-4 px-10 w-full xl:mt-44 lg:mt-44 md:mt-24 sm:mt-24 flex-col"
+      className="flex items-center gap-4 lg:px-10  md:px-10  sm:px-2 
+      xl:px-10 w-full xl:mt-44 lg:mt-44 md:mt-24 sm:mt-24 flex-col"
     >
       <Input
         handleChange={handleChange}

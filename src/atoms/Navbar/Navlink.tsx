@@ -8,8 +8,8 @@ interface INavlink {
 export default function Navlink(props: INavlink) {
   return (
     <Link
-      className="py-10 border-t-[0.8px] px-5
-      border-[#a9adc1] "
+      className="py-4 px-5
+ "
       to={`/${props.to}`}
     >
       {props.name}

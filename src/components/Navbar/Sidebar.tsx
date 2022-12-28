@@ -1,4 +1,7 @@
-import Navlink from "../../atoms/Navbar/Navlink";
+import { Link } from "react-router-dom";
+import LoginIcon from "@mui/icons-material/Login";
+import TokenNav from "../../atoms/Navbar/TokenNav";
+
 
 interface ISidebar {
   mode: boolean;
@@ -7,15 +10,19 @@ interface ISidebar {
 export default function Sidebar(props: ISidebar) {
   return (
     <div
-      className={`text-[#a9adc1] flex flex-col w-full mt-10 ${
+      className={`text-[#a9adc1] text-lg absolute bg-[#1f2028] z-50 h-screen flex flex-col w-full top-32
+       ${
         props.mode ? "flex overflow-hidden" : "hidden overflow-auto"
       }`}
     >
-      <Navlink name={"Blogs"} to={"blogs"} />
-      <Navlink name={"Watchlist"} to={"watchlist"} />
-      <Navlink name={"About"} to={"about"} />
-      <Navlink name={"Sign in"} to={"signin"} />
-      <Navlink name={"Sign up"} to={"signup"} />
+       <Link className="px-5 py-5" to={"/blogs"}>Blog</Link>
+      <Link className="px-5 py-5" to={"/question"}>Ask Question</Link>
+      <Link className="px-5 py-5" to={"/about"}>Story</Link>
+      <Link className="px-5 py-5" to={"/termsofuse"}>Mission</Link>
+      <div className="px-5 py-5">
+        <TokenNav />
+      </div>
+      
     </div>
   );
 }

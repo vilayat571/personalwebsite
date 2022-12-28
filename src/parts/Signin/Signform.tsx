@@ -48,7 +48,7 @@ export default function Signform(props: ISignForm) {
         setTimeout(() => {
           setMessage("");
         }, 2000);
-        navigate('/')
+        navigate("/");
       } else {
         setMessage("email is wrong");
         setTimeout(() => {
