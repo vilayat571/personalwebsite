@@ -73,17 +73,6 @@ export default memo(function Formnavigate(props: IFormnavigate) {
 
   return (
     <>
-      <Helmet>
-        <title>Vi</title>
-        <meta
-          name="description"
-          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
-        />
-        <meta
-          name="keywords"
-          content="Vilayat Safarov - Software Developer | Web | SEO"
-        />
-      </Helmet>
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="flex items-center gap-4 lg:px-10  md:px-10  sm:px-2 

@@ -16,9 +16,15 @@ export default memo(function Signup() {
           name="description"
           content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
         />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="Sign up to Vilayat Safarov" />
+        <meta
+          property="og:description"
+          content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
+        />
         <meta
           name="keywords"
-          content="Vilayat Safarov - Software Developer | Web | SEO"
+          content="Learn React, learn JavaScript, learn TypeScript"
         />
       </Helmet>
       <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 w-full h-screen">

@@ -7,16 +7,16 @@ export default function Termsofuse() {
   return (
     <Layout>
       <Helmet>
-        <title>Sign up to Vilayat Safarov</title>
+        <title>Transparency</title>
         <meta
           name="description"
-          content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
+          content="This page will give you an idea of my website and how you can support me"
         />
         <meta property="og:url" content="https://vilayatsafarov.com" />
-        <meta property="og:title" content="Sign up to Vilayat Safarov" />
+        <meta property="og:title" content="Transparency" />
         <meta
           property="og:description"
-          content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
+          content="This page will give you an idea of my website and how you can support me"
         />
         <meta
           name="keywords"
