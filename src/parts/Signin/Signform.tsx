@@ -91,7 +91,7 @@ export default function Signform() {
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
         />
 
-        <div className=" w-full">
+  
           <Input
             id="password"
             type={type ? "text" : "password"}
@@ -101,9 +101,12 @@ export default function Signform() {
             stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
           />
-          <button
+    
+          <Signinbutton text="Sign in" />
+      </form>
+      <button
             onClick={() => handleType()}
-            className="relative text-[#a9adc1] float-right bottom-9 right-2"
+            className="relative text-[#a9adc1] float-right bottom-28 right-2"
           >
             {type ? (
               <VisibilityOffIcon fontSize="medium" />
@@ -111,9 +114,6 @@ export default function Signform() {
               <VisibilityIcon fontSize="medium" />
             )}
           </button>
-        </div>
-      </form>
-      <Signinbutton text="Sign in" />
       <Message message={message} />
     </>
   );

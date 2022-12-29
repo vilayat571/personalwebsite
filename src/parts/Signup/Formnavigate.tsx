@@ -5,6 +5,9 @@ import Redirects from "../../components/Signin/Redirects";
 import Signinbutton from "../../components/Signin/Signinbutton";
 import { signUpUser } from "../../redux/reducers/signupReducer";
 import { useAppDispatch } from "../../redux/store";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Helmet } from "react-helmet-async";
 
 export interface ISignup {
   email: string;
@@ -62,47 +65,79 @@ export default memo(function Formnavigate(props: IFormnavigate) {
     }
   };
 
+  const [type, setType] = useState<boolean>(false);
+
+  const handleType = () => {
+    setType(!type);
+  };
+
   return (
-    <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="flex items-center gap-4 lg:px-10  md:px-10  sm:px-2 
+    <>
+      <Helmet>
+        <title>Vi</title>
+        <meta
+          name="description"
+          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
+        />
+        <meta
+          name="keywords"
+          content="Vilayat Safarov - Software Developer | Web | SEO"
+        />
+      </Helmet>
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="flex items-center gap-4 lg:px-10  md:px-10  sm:px-2 
       xl:px-10 w-full xl:mt-44 lg:mt-44 md:mt-24 sm:mt-24 flex-col"
-    >
-      <Input
-        handleChange={handleChange}
-        id="username"
-        placeholder="Username"
-        stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+      >
+        <Input
+          handleChange={handleChange}
+          id="username"
+          placeholder="Username"
+          stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
    border h-12 border-gray-500 rounded-sm w-full indent-4"
-        type="text"
-        value={form.username}
-      />
+          type="text"
+          value={form.username}
+        />
 
-      <Input
-        handleChange={handleChange}
-        id="email"
-        placeholder="Email"
-        stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+        <Input
+          handleChange={handleChange}
+          id="email"
+          placeholder="Email"
+          stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
    border h-12 border-gray-500 rounded-sm w-full  indent-4"
-        type="text"
-        value={form.email}
-      />
+          type="text"
+          value={form.email}
+        />
 
-      <Input
-        handleChange={handleChange}
-        id="password"
-        placeholder="Password"
-        stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+        <Input
+          handleChange={handleChange}
+          id="password"
+          placeholder="Password"
+          stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
    border h-12 border-gray-500 rounded-sm w-full indent-4"
-        type="text"
-        value={form.password}
-      />
-      <Signinbutton text="Sign up" />
-      <Redirects
-        url="/signin"
-        text1="Do you have account already ?."
-        text2="Sign in"
-      />
-    </form>
+          type={type ? "text" : "password"}
+          value={form.password}
+        />
+        <Signinbutton text="Sign up" />
+        <Redirects
+          url="/signin"
+          text1="Do you have account already ?."
+          text2="Sign in"
+        />
+      </form>
+      <button
+        onClick={() => handleType()}
+        className="relative text-[#a9adc1] float-right 
+        xl:top-[84px] lg:top-[84px] md:top-[48px] sm:top-[48px] 
+         xl:right-20 lg:right-20 md:right-20 sm:right-12
+         "
+      >
+        {type ? (
+          <VisibilityOffIcon fontSize="medium" />
+        ) : (
+          <VisibilityIcon fontSize="medium" />
+        )}
+      </button>
+    </>
   );
 });
