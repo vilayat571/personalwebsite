@@ -5,6 +5,8 @@ import Signinbutton from "../../components/Signin/Signinbutton";
 import Message from "../../components/Signup/Message";
 import { signIn } from "../../redux/reducers/sigininReducer";
 import { useAppDispatch } from "../../redux/store";
+//import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 interface ISubmit {
   (e: React.FormEvent<HTMLFormElement>): any;
@@ -25,6 +27,9 @@ interface IFunc {
 
 export default function Signform(props: ISignForm) {
   const dispatch = useAppDispatch();
+
+  /* const [type, setType] = useState<boolean>(false); */
+  const type = false;
 
   const [form, setForm] = useState<ISignin>({
     email: "",
@@ -87,16 +92,21 @@ export default function Signform(props: ISignForm) {
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
         />
 
-        <Input
-          id="password"
-          type="text"
-          value={form.password}
-          placeholder="Password"
-          handleChange={handleChange}
-          stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+        <div className="flex w-full items-center justify-center  text-white">
+          <Input
+            id="password"
+            type={type ? "text" : "password"}
+            value={form.password}
+            placeholder="Password"
+            handleChange={handleChange}
+            stil="outline-none flex-1 focus:bg-transparent text-white font-thin text-sm bg-transparent
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
-        />
-        <Signinbutton text="Sign in" />
+          />
+          <VisibilityOffIcon fontSize="medium" />
+        </div>
+        <div className="reltaive right-8">
+          <Signinbutton text="Sign in" />
+        </div>
       </form>
       <Message message={message} />
     </>

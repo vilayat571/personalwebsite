@@ -30,7 +30,3 @@ export default function About() {
   );
 }
 
-/* 
-1) React - helmet istifadesinin qeydini goturmek
-2) Font awesome install ederek istifade etmeyi oyrenmek
-*/

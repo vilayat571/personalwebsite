@@ -9,7 +9,7 @@ export default function Footmetext() {
       />
       <Pofme
         text={
-          "When I want to relax, I either watch movies, play football or do boxing. But one of the best hobbies among them is boxing. When I'm not spending my time in front of the computer, my family or friends, I only do boxing."
+          "When I want to relax, I either watch movies, play football, do boxing or do gym. But one of the best hobbies among them is gym. When I'm not spending my time in front of the computer, my family or friends, I only do boxing."
         }
         stil={
           "text-[#a9adc1] lg:w-[90%] sm:w-full md:w-full xl:w-[90%] mt-4 font-thin text-2xl tracking-[0.4px] "

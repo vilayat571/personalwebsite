@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/img1.png";
+import main from "../../assets/images/main.webp";
 
 export default function Imgsec() {
   return (
@@ -11,7 +11,7 @@ export default function Imgsec() {
         style={{ rotate: "0deg" }}
         className=" xl:object-fill lg:object-fill md:object-fill sm:object-cover
          sm:h-96 md:h-96 xl:h-auto lg:h-auto border-0 relative"
-        src={Logo}
+        src={main}
         alt="programming analysis"
       />
     </div>
