@@ -88,20 +88,22 @@ export default React.memo(function Blogs() {
           <Allfilter handleClick={() => handleClick(-1)} />
           {categories
             ? categories.map((category: ICategory, index: number) => {
-              return (
-                <Categories
-                  key={index}
-                  limit={limit}
-                  name={category.category_name}
-                  id={category.id}
-                  handleClick={() => handleClick(category.id)}
-                />
-              );
-            })
+                return (
+                  <Categories
+                    key={index}
+                    limit={limit}
+                    name={category.category_name}
+                    id={category.id}
+                    handleClick={() => handleClick(category.id)}
+                  />
+                );
+              })
             : ""}
         </Filterdiv>
         <Filtereddata filteredData={filteredData} />
-        <Loadmore handleLimit={() => handleLimit()} />
+        {filteredData.length > 0 && (
+          <Loadmore handleLimit={() => handleLimit()} />
+        )}
       </div>
     </Layout>
   );

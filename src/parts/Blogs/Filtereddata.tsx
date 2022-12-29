@@ -19,7 +19,7 @@ export default function Filtereddata(props: IFilteredData) {
           return <Blogpagediv blog={blog} key={index} />;
         })
       ) : (
-        <h1 className="text-center col-span-3 text-[#a9adc1]">
+        <h1 className="text-center text-xl relative top-2 col-span-3 text-[#a9adc1]">
           Don't have any blog
         </h1>
       )}

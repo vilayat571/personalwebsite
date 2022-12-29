@@ -5,7 +5,7 @@ import Signinbutton from "../../components/Signin/Signinbutton";
 import Message from "../../components/Signup/Message";
 import { signIn } from "../../redux/reducers/sigininReducer";
 import { useAppDispatch } from "../../redux/store";
-//import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 interface ISubmit {
@@ -17,19 +17,12 @@ export interface ISignin {
   password: string;
 }
 
-interface ISignForm {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 interface IFunc {
   (e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-export default function Signform(props: ISignForm) {
+export default function Signform() {
   const dispatch = useAppDispatch();
-
-  /* const [type, setType] = useState<boolean>(false); */
-  const type = false;
 
   const [form, setForm] = useState<ISignin>({
     email: "",
@@ -40,6 +33,12 @@ export default function Signform(props: ISignForm) {
 
   const handleChange: IFunc = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const [type, setType] = useState<boolean>(false);
+
+  const handleType = () => {
+    setType(!type);
   };
 
   const navigate = useNavigate();
@@ -92,22 +91,29 @@ export default function Signform(props: ISignForm) {
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
         />
 
-        <div className="flex w-full items-center justify-center  text-white">
+        <div className=" w-full">
           <Input
             id="password"
             type={type ? "text" : "password"}
             value={form.password}
             placeholder="Password"
             handleChange={handleChange}
-            stil="outline-none flex-1 focus:bg-transparent text-white font-thin text-sm bg-transparent
+            stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
           />
-          <VisibilityOffIcon fontSize="medium" />
-        </div>
-        <div className="reltaive right-8">
-          <Signinbutton text="Sign in" />
+          <button
+            onClick={() => handleType()}
+            className="relative text-[#a9adc1] float-right bottom-9 right-2"
+          >
+            {type ? (
+              <VisibilityOffIcon fontSize="medium" />
+            ) : (
+              <VisibilityIcon fontSize="medium" />
+            )}
+          </button>
         </div>
       </form>
+      <Signinbutton text="Sign in" />
       <Message message={message} />
     </>
   );

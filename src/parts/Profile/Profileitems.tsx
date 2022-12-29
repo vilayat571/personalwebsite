@@ -14,13 +14,13 @@ export default function Profileitems() {
     >
       <Link
         to={"/account/questions"}
-        className="text-[#a9adc1] lg:text-lg md:text-normal sm:text-lg xl:text-lg"
+        className="text-[#a9adc1]  text-lg  "
       >
         My questions
       </Link>
       <Link
         to={"/question"}
-        className="text-[#a9adc1] lg:text-lg md:text-normal sm:text-lg xl:text-lg"
+        className="text-[#a9adc1]  text-lg  "
       >
         Ask question
       </Link>
