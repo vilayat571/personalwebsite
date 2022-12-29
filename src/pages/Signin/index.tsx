@@ -17,6 +17,20 @@ export default function Signin() {
     <>
       <Helmet>
         <title>Sign in to Vilayat Safarov</title>
+        <meta
+          name="description"
+          content="Sign in to read and learn blogs on: Html & Css & Javascript & React JS etc."
+        />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="Sign in to Vilayat Safarov" />
+        <meta
+          property="og:description"
+          content="Sign in to read and learn blogs on: Html & Css & Javascript & React JS etc."
+        />
+        <meta
+          name="keywords"
+          content="Learn React, learn JavaScript, learn TypeScript"
+        />
       </Helmet>
       <div className="w-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
         <Signincontent />

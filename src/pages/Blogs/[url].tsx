@@ -30,7 +30,32 @@ export default function SingleBlog() {
     <Layout>
       <div>
         <Helmet>
-          <title>The Vilayat Safarov's blog</title>
+          <title>{blog ? blog.title : "The Vilayat Safarov blog "}</title>
+          <meta
+            name="description"
+            content={
+              blog
+                ? `Learn about - ${blog.description}`
+                : "Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more."
+            }
+          />
+          <meta
+            name="keywords"
+            content="Learn React, learn JavaScript, learn TypeScript and learn about Software Development"
+          />
+          <meta property="og:url" content="https://vilayatsafarov.com" />
+          <meta
+            property="og:title"
+            content={blog ? blog.title : "The Vilayat Safarov blog "}
+          />
+          <meta
+            property="og:description"
+            content={
+              blog
+                ? `Learn about - ${blog.description}`
+                : "Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more."
+            }
+          />
         </Helmet>
         {blog ? (
           <div className=" w-full flex mt-44 flex-col justify-between items-center ">
@@ -49,7 +74,10 @@ export default function SingleBlog() {
               src={blog.image}
               alt=""
             />
-            <div className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-2xl mt-6 text-[#a9adc1]">
+            <div
+              className=" x
+            lJoin people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more.:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-2xl mt-6 text-[#a9adc1]"
+            >
               {blog.description}
             </div>
 
@@ -72,7 +100,10 @@ export default function SingleBlog() {
               src={profile}
               alt=""
             />
-            <div className="mt-2 flex flex-col gap-2 items-start">
+            <div
+              className="mt
+            -Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more.2 flex flex-col gap-2 items-start"
+            >
               <h1 className="text-white text-lg tracking-[0.8px] ">
                 Written by Vilayat Safarov
               </h1>

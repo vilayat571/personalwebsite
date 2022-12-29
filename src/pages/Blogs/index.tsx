@@ -72,14 +72,20 @@ export default React.memo(function Blogs() {
   return (
     <Layout>
       <Helmet>
-        <title>The Vilayat Safarov blogs</title>
+        <title>The Vilayat Safarov blog</title>
         <meta
           name="description"
-          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
+          content="Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more."
         />
         <meta
           name="keywords"
-          content="Vilayat Safarov - Software Developer | Web | SEO"
+          content="Learn React, learn JavaScript, learn TypeScript and learn about Software Development"
+        />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="The Vilayat Safarov blog" />
+        <meta
+          property="og:description"
+          content="Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more."
         />
       </Helmet>
       <div className="flex mt-48 gap-12 flex-col items-center w-full h-auto">

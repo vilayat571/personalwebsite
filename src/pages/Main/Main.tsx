@@ -16,9 +16,15 @@ export default memo(function Main() {
           name="description"
           content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
         />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="Vilayat Safarov" />
+        <meta
+          property="og:description"
+          content="Learn interview questions from Vilayat Safarov and read blogs: Html & Css & Javascript & React JS and more."
+        />
         <meta
           name="keywords"
-          content="Vilayat Safarov - Software Developer | Web | SEO"
+          content="Learn React, Learn JS Next, React Tutorial, Learn JavaScript, Learn TypeScript"
         />
       </Helmet>
       <div className="flex flex-col w-full h-auto mt-24">

@@ -10,14 +10,13 @@ export default function About() {
     <Layout>
       <Helmet>
         <title>About Vilayat Safarov</title>
-        <meta
-          name="description"
-          content="Software developer, content creator on Stackoverflow and Medium
-           in JavaScript, TypeScript and other programming languages."
-        />
+        <meta name="description" content="Get to know Vilayat Safarov" />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="About Vilayat Safarov" />
+        <meta property="og:description" content="Get to know Vilayat Safarov" />
         <meta
           name="keywords"
-          content="Vilayat Safarov, Vilayet Safarov, Software Developer"
+          content="Learn React, Learn JS Next, React Tutorial, Learn JavaScript, Learn TypeScript"
         />
       </Helmet>
       <div className="h-auto flex flex-col mt-44 w-full">
@@ -29,4 +28,3 @@ export default function About() {
     </Layout>
   );
 }
-

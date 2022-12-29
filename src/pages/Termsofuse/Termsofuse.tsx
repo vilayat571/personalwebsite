@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Contentdiv from "../../components/Termsofuse/Contentdiv";
 import Imgtitle from "../../components/Termsofuse/Imgtitle";
 import Layout from "../../layout/Layout";
@@ -5,6 +6,23 @@ import Layout from "../../layout/Layout";
 export default function Termsofuse() {
   return (
     <Layout>
+      <Helmet>
+        <title>Sign up to Vilayat Safarov</title>
+        <meta
+          name="description"
+          content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
+        />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="Sign up to Vilayat Safarov" />
+        <meta
+          property="og:description"
+          content="Sign up to read and learn blogs on: Html & Css & Javascript & React JS etc."
+        />
+        <meta
+          name="keywords"
+          content="Learn React, learn JavaScript, learn TypeScript"
+        />
+      </Helmet>
       <div className="flex flex-col pt-24 mt-28 lg:mx-20 sm:mx-0 md:mx-0 xl:mx-40 h-auto  w-full">
         <Imgtitle />
         <Contentdiv

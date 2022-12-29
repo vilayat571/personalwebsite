@@ -15,6 +15,12 @@ export default function Contact() {
           name="keywords"
           content="Ask a question about : Interview | Software Development | Front End Development"
         />
+        <meta property="og:url" content="https://vilayatsafarov.com" />
+        <meta property="og:title" content="Ask Vilayat a question" />
+        <meta
+          property="og:description"
+          content="To improve your software skills or learn any interview question ask Vilayat Safarov a question and learn"
+        />
       </Helmet>
       <div className="w-full h-auto mt-24 ">
         <Questionform />

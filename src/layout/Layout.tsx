@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Children from "../atoms/Layout/Children";
 import Diver from "../atoms/Layout/Diver";
@@ -22,6 +22,9 @@ export default React.memo(function Layout(props: ILayout) {
   ) {
     navigate("/");
   }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div className=" flex flex-col items-center">
