@@ -1,0 +1,29 @@
+ if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
+      dispatch(signIn(form));
+      if (localStorage.getItem("jwt") !== undefined) {
+        setMessage("success");
+        setTimeout(() => {
+          setMessage("");
+          navigate("/");
+        }, 2000);
+      } else {
+        setMessage("email is wrong");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+        navigate('/signin')
+      }
+    } else {
+      if (form.password.length < 8) {
+        setMessage("password must be longer than 8");
+
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      } else if (form.email.indexOf("@") === -1) {
+        setMessage("email must have @");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      }
+    }

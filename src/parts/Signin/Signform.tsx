@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
@@ -47,31 +47,30 @@ export default function Signform() {
     e.preventDefault();
     if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
       dispatch(signIn(form));
-      if (localStorage.getItem("jwt") !== "undefined") {
-        setMessage("success");
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-        navigate("/");
-      } else {
-        setMessage("email is wrong");
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      }
-    } else {
-      if (form.password.length < 8) {
-        setMessage("password must be longer than 8");
 
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      } else if (form.email.indexOf("@") === -1) {
-        setMessage("email must have @");
-        setTimeout(() => {
-          setMessage("");
-        }, 2000);
-      }
+      setTimeout(() => {
+        if (
+          localStorage.getItem("jwt") === "undefined" ||
+          localStorage.getItem("jwt") === "null"
+        ) {
+          setMessage("email or password is wrong");
+          setTimeout(() => {
+            setMessage("");
+          }, 1000);
+        } else {
+          navigate("/");
+        }
+      }, 600);
+    } else if (form.password.length < 8) {
+      setMessage("password must be longer than 8");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    } else if (form.email.indexOf("@") === -1) {
+      setMessage("email must have @");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
     }
   };
 
@@ -91,29 +90,28 @@ export default function Signform() {
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
         />
 
-  
-          <Input
-            id="password"
-            type={type ? "text" : "password"}
-            value={form.password}
-            placeholder="Password"
-            handleChange={handleChange}
-            stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
+        <Input
+          id="password"
+          type={type ? "text" : "password"}
+          value={form.password}
+          placeholder="Password"
+          handleChange={handleChange}
+          stil="outline-none focus:bg-transparent text-white font-thin text-sm bg-transparent
  border h-12 border-gray-500 rounded-sm w-full  indent-4"
-          />
-    
-          <Signinbutton text="Sign in" />
+        />
+
+        <Signinbutton text="Sign in" />
       </form>
       <button
-            onClick={() => handleType()}
-            className="relative text-[#a9adc1] float-right bottom-28 right-2"
-          >
-            {type ? (
-              <VisibilityOffIcon fontSize="medium" />
-            ) : (
-              <VisibilityIcon fontSize="medium" />
-            )}
-          </button>
+        onClick={() => handleType()}
+        className="relative text-[#a9adc1] float-right bottom-28 right-2"
+      >
+        {type ? (
+          <VisibilityOffIcon fontSize="medium" />
+        ) : (
+          <VisibilityIcon fontSize="medium" />
+        )}
+      </button>
       <Message message={message} />
     </>
   );
