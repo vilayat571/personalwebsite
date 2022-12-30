@@ -7,7 +7,6 @@ import { signUpUser } from "../../redux/reducers/signupReducer";
 import { useAppDispatch } from "../../redux/store";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { Helmet } from "react-helmet-async";
 
 export interface ISignup {
   email: string;
