@@ -20,7 +20,6 @@ interface IFunc {
 }
 
 export default function Signform() {
-
   const [form, setForm] = useState<ISignin>({
     email: "",
     password: "",

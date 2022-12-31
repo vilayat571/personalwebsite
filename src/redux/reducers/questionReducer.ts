@@ -40,10 +40,8 @@ const questionReducer = createSlice({
     builder.addCase(askQuestion.fulfilled, (state, action) => {
       state.data = "";
       state.loading = false;
-      console.log("Payload", action.payload);
     });
   },
 });
 
 export default questionReducer.reducer;
-/* bearer token qeyd gotur */

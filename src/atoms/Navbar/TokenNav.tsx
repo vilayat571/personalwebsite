@@ -19,13 +19,11 @@ export default function TokenNav() {
       })
         .then((res) => res.json())
         .then((data) => setName(data?.username));
-  }, [name, token]);
-
-  console.log('Token',token)
+  }, []);
 
   return (
     <>
-      {token!==null && token!==undefined ? (
+      {token !== null && token !== undefined ? (
         <div className="text-white ">
           <Link to={"/account/questions"}>{name}</Link>
         </div>
