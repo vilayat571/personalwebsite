@@ -19,7 +19,7 @@ export default function TokenNav() {
       })
         .then((res) => res.json())
         .then((data) => setName(data?.username));
-  }, []);
+  }, [token]);
 
   return (
     <>

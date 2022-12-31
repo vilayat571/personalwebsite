@@ -7,8 +7,6 @@ export interface IQuestion {
 }
 
 export default function Question() {
-  const [id, setId] = useState<any>(null);
-
   const [questions, setQuestions] = useState<any>(null);
 
   const token = localStorage.getItem("jwt");
@@ -31,7 +29,7 @@ export default function Question() {
             .then((res) => res.json())
             .then((data) => setQuestions(data))
         );
-  }, []);
+  }, [token]);
 
   return (
     <div className="grid grid-cols-1 gap-y-6 pb-12">
