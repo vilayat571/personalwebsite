@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import Singlequestion from "./Singlequestion";
+import {  useState } from "react";
+
 
 export interface IQuestion {
   title: string;
@@ -9,24 +9,25 @@ export interface IQuestion {
 export default function Question() {
   const [questions, setQuestions] = useState<any>(null);
 
-  const details = localStorage.getItem("userDetails");
-
-  useEffect(() => {
+  const details = localStorage.getItem("details");
+console.log(details)
+/*   useEffect(() => {
     const url = `https://api.vilayatsafarov.com/api/v1/blog/questions/?owner=${
       details && JSON.parse(details).id
     }`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setQuestions(data));
-  }, [details]);
-
+  }, []); */
+  console.log(questions)
 
   return (
     <div className="grid grid-cols-1 gap-y-6 pb-12">
-      {questions !== null && 
-        questions.results.map((question: IQuestion, index: number) => {
-          return <Singlequestion question={question} key={index} />;
-        })} 
+     {/*  {questions !== null
+        ? questions.results.map((question: IQuestion, index: number) => {
+            return <Singlequestion question={question} key={index} />;
+          })
+        : "You dont have any question"} */}
     </div>
   );
 }

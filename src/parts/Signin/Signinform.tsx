@@ -6,7 +6,6 @@ export interface ISignin {
   password: string;
 }
 
-
 export default function Signinform() {
   return (
     <div className="h-screen bg-[#1f2028] w-full col-span-1 flex justify-center items-center">

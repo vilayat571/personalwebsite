@@ -1,10 +1,8 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Signin/Input";
 import Signinbutton from "../../components/Signin/Signinbutton";
 import Message from "../../components/Signup/Message";
-import { signIn } from "../../redux/reducers/sigininReducer";
-import { useAppDispatch } from "../../redux/store";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
@@ -22,7 +20,6 @@ interface IFunc {
 }
 
 export default function Signform() {
-  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState<ISignin>({
     email: "",
@@ -43,34 +40,45 @@ export default function Signform() {
 
   const navigate = useNavigate();
 
-  const handleSubmit: ISubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit: ISubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
-      dispatch(signIn(form));
 
-      setTimeout(() => {
-        if (
-          localStorage.getItem("jwt") === "undefined" ||
-          localStorage.getItem("jwt") === "null"
-        ) {
-          setMessage("email or password is wrong");
+    try {
+      const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
+      if (form.email.indexOf("@") !== -1 && form.password.length > 7) {
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({
+            email: form.email,
+            password: form.password,
+          }),
+        });
+        const data = await res.json();
+        if (data?.access !== undefined) {
+          localStorage.setItem("jwt", data?.access);
+          localStorage.setItem("details", data?.user_details);
+          navigate("/");
+        } else {
+          setMessage("un login");
           setTimeout(() => {
             setMessage("");
-          }, 1000);
-        } else {
-          navigate("/");
+          }, 1200);
         }
-      }, 600);
-    } else if (form.password.length < 8) {
-      setMessage("password must be longer than 8");
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
-    } else if (form.email.indexOf("@") === -1) {
-      setMessage("email must have @");
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
+      } else if (form.password.length < 8) {
+        setMessage("password");
+        setTimeout(() => {
+          setMessage("");
+        }, 1200);
+      } else if (form.email.indexOf("@") === -1) {
+        setMessage("email");
+        setTimeout(() => {
+          setMessage("");
+        }, 1200);
+      }
+    } catch (err: any) {
+      console.log("err", err);
     }
   };
 
@@ -112,7 +120,36 @@ export default function Signform() {
           <VisibilityIcon fontSize="medium" />
         )}
       </button>
+
       <Message message={message} />
     </>
   );
 }
+
+/*    if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
+      dispatch(signIn(form));
+
+      setTimeout(() => {
+        if (
+          localStorage.getItem("jwt") === "undefined" ||
+          localStorage.getItem("jwt") === "null"
+        ) {
+          setMessage("email or password is wrong");
+          setTimeout(() => {
+            setMessage("");
+          }, 1000);
+        } else {
+          navigate("/");
+        }
+      }, 600);
+    } else if (form.password.length < 8) {
+      setMessage("password must be longer than 8");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    } else if (form.email.indexOf("@") === -1) {
+      setMessage("email must have @");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    } */
