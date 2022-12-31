@@ -7,7 +7,6 @@ export interface IQuestion {
 }
 
 export default function Question() {
-  const [questions, setQuestions] = useState<any>(null);
 
   const details = localStorage.getItem("details");
 console.log(details)
@@ -19,7 +18,6 @@ console.log(details)
       .then((res) => res.json())
       .then((data) => setQuestions(data));
   }, []); */
-  console.log(questions)
 
   return (
     <div className="grid grid-cols-1 gap-y-6 pb-12">
