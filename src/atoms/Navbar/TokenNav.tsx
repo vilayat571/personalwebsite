@@ -3,7 +3,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useEffect, useState } from "react";
 
 export default function TokenNav() {
-  const [name, setName] = useState<string | undefined>("");
+  const [name, setName] = useState<string>("");
 
   const token = localStorage.getItem("jwt");
 
@@ -19,11 +19,13 @@ export default function TokenNav() {
       })
         .then((res) => res.json())
         .then((data) => setName(data?.username));
-  }, [name,token]);
+  }, [name, token]);
+
+  console.log('Token',token)
 
   return (
     <>
-      {token ? (
+      {token!==null && token!==undefined ? (
         <div className="text-white ">
           <Link to={"/account/questions"}>{name}</Link>
         </div>
