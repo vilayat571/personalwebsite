@@ -3,13 +3,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface ITolink {
   text: string;
+  url:string;
 }
 
 export default function Tolink(props: ITolink) {
   return (
     <Link
-      to={"/blogs"}
-      className="flex text-white justify-between -z-10 items-center"
+      to={props.url}
+      className="flex text-white justify-between  items-center"
     >
       <span className="mr-6 text-xl">{props.text}</span>
       <button

@@ -7,7 +7,6 @@ interface IBlogsdiv {
 }
 
 export default memo(function Blogsdiv(props: IBlogsdiv) {
-  console.log("blogs");
   return (
     <>
       {props.blogs &&

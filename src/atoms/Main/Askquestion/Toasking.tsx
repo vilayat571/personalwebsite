@@ -5,7 +5,7 @@ export default function Toasking() {
   return (
     <div className="w-full flex items-start mt-8">
       <Link
-        to={"/blogs"}
+        to={"/question"}
         className="flex text-white gap-4  items-center"
       >
         <span className="mr-2 text-lg">Lets' ask</span>

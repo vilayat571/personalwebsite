@@ -11,7 +11,9 @@ interface INav {
 export default memo(function Nav(props: INav) {
   return (
     <div
-      className={`${props.mode ? "w-full" : "w-11/12"}
+      className={`${
+        props.mode ? "w-full " : "xl:w-11/12 lg:w-11/12 sm:w-full md:w-11/12"
+      }
      flex   bg-[#1f2028]
     justify-between items-center`}
     >

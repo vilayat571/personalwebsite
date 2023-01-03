@@ -22,7 +22,7 @@ export default function Contact() {
           content="To improve your software skills or learn any interview question ask Vilayat Safarov a question and learn"
         />
       </Helmet>
-      <div className="w-full h-auto mt-24 ">
+      <div className="w-full h-auto relative top-20 ">
         <Questionform />
       </div>
     </Layout>

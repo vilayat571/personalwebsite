@@ -13,7 +13,7 @@ export default function Totop() {
     <button
       onClick={() => handleClick()}
       className="transition-all transform text-white
-        w-12 h-12 flex justify-center -z-10
+        w-12 h-12 flex justify-center z-10
      items-center border-2 p-1 hover:border-white 
      rounded-full border-[#494a51] "
     >

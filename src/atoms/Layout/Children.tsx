@@ -6,8 +6,11 @@ interface IChildren {
 
 export default function Children(props: IChildren) {
   return (
-    <div className="sm:w-11/12 md:w-11/12 lg:w-11/12 xl:w-4/5 sm:pt-24 md:pt-24
-     lg:pt-28 xl:pt-36 flex justify-center items-center">
+    <div
+      className="sm:w-11/12 md:w-11/12 lg:w-11/12 
+    xl:w-11/12 sm:pt-24 md:pt-24 lg:pt-28 xl:pt-36
+     flex justify-center items-center"
+    >
       {props.parentNode}
     </div>
   );

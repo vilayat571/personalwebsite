@@ -11,8 +11,6 @@ export default memo(function Navside() {
     setMode(!mode);
   }, [mode]);
 
-  //testing
-
   return (
     <div className=" w-full flex flex-col items-center">
       <Nav mode={mode} changeMode={() => changeMode()} />

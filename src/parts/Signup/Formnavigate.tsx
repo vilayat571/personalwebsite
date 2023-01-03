@@ -74,8 +74,8 @@ export default memo(function Formnavigate(props: IFormnavigate) {
     <>
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className="flex items-center gap-4 lg:px-10  md:px-10  sm:px-2 
-      xl:px-10 w-full xl:mt-44 lg:mt-44 md:mt-24 sm:mt-24 flex-col"
+        className="flex items-center gap-y-4 lg:px-10 md:px-10 sm:pl-2 xl:px-10 w-full 
+         xl:mt-44 lg:mt-44 md:mt-24 sm:mt-24 flex-col"
       >
         <Input
           handleChange={handleChange}
@@ -117,7 +117,7 @@ export default memo(function Formnavigate(props: IFormnavigate) {
         onClick={() => handleType()}
         className="relative text-[#a9adc1] float-right 
         xl:top-[84px] lg:top-[84px] md:top-[48px] sm:top-[48px] 
-         xl:right-20 lg:right-20 md:right-20 sm:right-12
+         xl:right-20 lg:right-20 md:right-20 sm:right-10
          "
       >
         {type ? (
