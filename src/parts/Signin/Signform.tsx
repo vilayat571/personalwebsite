@@ -58,7 +58,7 @@ export default function Signform() {
         const data = await res.json();
         if (data?.access !== undefined) {
           localStorage.setItem("jwt", data?.access);
-          localStorage.setItem("details", data?.user_details);
+          localStorage.setItem("name", data?.user_details.username);
           navigate("/");
         } else {
           setMessage("un login");
