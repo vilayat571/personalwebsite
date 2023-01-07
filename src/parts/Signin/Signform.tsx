@@ -45,6 +45,7 @@ export default function Signform() {
     try {
       const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
       if (form.email.indexOf("@") !== -1 && form.password.length > 7) {
+        console.log(form.email, form.password);
         const res = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -66,12 +67,12 @@ export default function Signform() {
           }, 1200);
         }
       } else if (form.password.length < 8) {
-        setMessage("password");
+        setMessage("password length must be longer than 8");
         setTimeout(() => {
           setMessage("");
         }, 1200);
       } else if (form.email.indexOf("@") === -1) {
-        setMessage("email");
+        setMessage("email must have @");
         setTimeout(() => {
           setMessage("");
         }, 1200);
@@ -124,31 +125,3 @@ export default function Signform() {
     </>
   );
 }
-
-/*    if (form.password.length > 7 && form.email.indexOf("@") !== -1) {
-      dispatch(signIn(form));
-
-      setTimeout(() => {
-        if (
-          localStorage.getItem("jwt") === "undefined" ||
-          localStorage.getItem("jwt") === "null"
-        ) {
-          setMessage("email or password is wrong");
-          setTimeout(() => {
-            setMessage("");
-          }, 1000);
-        } else {
-          navigate("/");
-        }
-      }, 600);
-    } else if (form.password.length < 8) {
-      setMessage("password must be longer than 8");
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
-    } else if (form.email.indexOf("@") === -1) {
-      setMessage("email must have @");
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
-    } */

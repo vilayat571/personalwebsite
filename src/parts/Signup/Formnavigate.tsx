@@ -42,20 +42,17 @@ export default memo(function Formnavigate(props: IFormnavigate) {
   );
 
   const navigate = useNavigate();
-
   const handleSubmit: IFunc2 = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.email.indexOf("@") !== -1 && form.password) {
+    if (form.email.indexOf("@") !== -1 && form.password.length > 7) {
       dispatch(signUpUser(form));
-
-      if (form.password.length < 8) {
-        props.setMessage("password must be longer than 8 ");
-        setTimeout(() => {
-          props.setMessage("");
-        }, 1000);
-      } else {
-        navigate("/signin");
-      }
+      navigate("/signin");
+    }
+    if (form.password.length < 8) {
+      props.setMessage("password must be longer than 8 ");
+      setTimeout(() => {
+        props.setMessage("");
+      }, 1000);
     } else {
       props.setMessage("email must have @");
       setTimeout(() => {
