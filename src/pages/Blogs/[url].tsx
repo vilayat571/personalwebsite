@@ -65,7 +65,7 @@ export default memo(function SingleBlog() {
               </div>
 
               <div className="md:block xl:block lg:block sm:hidden">
-                <Toblogs text="Go back " url="/" />
+                <Toblogs text="Go back " url="blogs" />
               </div>
             </div>
             <img
