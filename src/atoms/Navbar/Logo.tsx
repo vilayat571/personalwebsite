@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <Link
       className="text-white text-[22px]
-    md:px-0 lg:px-0 sm:px-0 xl:px-0 "
+    md:px-0 lg:px-0 sm:px-4 xl:px-0 "
       to={"/"}
     >
       <span
