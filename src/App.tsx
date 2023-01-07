@@ -9,8 +9,26 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup/Index";
 import Termsofuse from "./pages/Termsofuse/Termsofuse";
 import Myquestions from "./pages/Profile/Myquestions";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    document.onkeydown = function (e) {
+      if (e.keyCode === 123) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        return false;
+      }
+      if (e.ctrlKey && e.keyCode === 85) {
+        return false;
+      }
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

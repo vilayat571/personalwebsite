@@ -15,7 +15,7 @@ export default function Col1() {
       <p className="text-white flex  mt-3">
         <a
           className="mr-2 text-3xl "
-          href="http://"
+          href="https://github.com/vilayat571"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -24,7 +24,7 @@ export default function Col1() {
 
         <a
           className="mr-2 text-3xl"
-          href="http://"
+          href="https://www.linkedin.com/in/vilayat-safarov-1a3b58249/"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import Toblogs from "../../atoms/Main/Toblogs";
 import Layout from "../../layout/Layout";
-import profile from "../../assets/images/me.png";
+import Author from "../../parts/Blogs/Author";
+import Toblogs from "../../atoms/Main/Toblogs";
 
 interface IBlog {
   author: number | string;
@@ -14,7 +14,7 @@ interface IBlog {
   title: string;
 }
 
-export default function SingleBlog() {
+export default memo(function SingleBlog() {
   const { id } = useParams();
 
   const [blog, setBlog] = useState<IBlog | any>(null);
@@ -64,7 +64,7 @@ export default function SingleBlog() {
                 {blog.title}
               </div>
 
-              <div>
+              <div className="md:block xl:block lg:block sm:hidden">
                 <Toblogs text="Go back " url="/" />
               </div>
             </div>
@@ -89,38 +89,9 @@ export default function SingleBlog() {
         ) : (
           ":Loading.."
         )}
-        <div className=" mt-24 flex justify-center items-center">
-          <div
-            className="xl:w-2/3 lg:w-2/3 md:w-full sm:w-full 
-           flex sm:flex-col xl:flex-row lg:flex-row md:flex-col gap-x-20
-           gap-y-8 items-start border-t py-8 border-[#4b4c53]"
-          >
-            <img
-              className="w-[140px] border-0 object-cover rounded-3xl"
-              src={profile}
-              alt=""
-            />
-            <div
-              className="mt
-            -Join people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more.2 flex flex-col gap-2 items-start"
-            >
-              <h1 className="text-white text-lg tracking-[0.8px] ">
-                Written by Vilayat Safarov
-              </h1>
-              <p
-                style={{ lineHeight: "28px" }}
-                className="text-[#a9adc1] w-4/5 tracking-[0.6px] "
-              >
-                Vilayat Safarov is a software developer. At the same time, he is
-                a blogger, motivator and mentor. The main purpose of Wilayat is
-                to help people, because Wilayat thinks that it is also helping
-                itself. Vilayat is Muslim and lives in Baku, Azerbaijan.
-              </p>
-              <Toblogs text={"Learn more about author"} url="/" />
-            </div>
-          </div>
-        </div>
+
+        <Author />
       </div>
     </Layout>
   );
-}
+});

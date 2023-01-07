@@ -14,28 +14,28 @@ interface IMainDirectory {
 export default function Maindirectory(props: IMainDirectory) {
   const urls: IUrls["urls"] = [
     {
-      url: "",
+      url: "/",
       name: "Home",
     },
     {
-      url: "",
+      url: "/blogs",
       name: "Blogs",
     },
     {
-      url: "",
-      name: "Draft",
-    },
-    {
-      url: "",
+      url: "/about",
       name: "About",
     },
     {
-      url: "",
-      name: "Question",
+      url: "/question",
+      name: "Ask question",
     },
     {
-      url: "",
-      name: "Get started",
+      url: "/signin",
+      name: "Sign in",
+    },
+    {
+      url: "/signup",
+      name: "Sign up",
     },
   ];
 

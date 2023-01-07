@@ -14,20 +14,20 @@ interface IMainDirectory {
 export default function Generaldirectory(props: IMainDirectory) {
   const urls: IUrls["urls"] = [
     {
-      url: "",
+      url: "/termsofuse",
       name: "FAQ",
     },
     {
-      url: "",
+      url: "/termsofuse",
       name: "Terms of use",
     },
     {
-      url: "",
+      url: "/termsofuse",
       name: "Privacy police",
     },
 
     {
-      url: "",
+      url: "/termsofuse",
       name: "My mission",
     },
   ];
