@@ -49,12 +49,12 @@ export default memo(function Formnavigate(props: IFormnavigate) {
       navigate("/signin");
     }
     if (form.password.length < 8) {
-      props.setMessage("password must be longer than 8 ");
+      props.setMessage("password must be at least 8 characters.");
       setTimeout(() => {
         props.setMessage("");
       }, 1000);
     } else {
-      props.setMessage("email must have @");
+      props.setMessage("required in email @");
       setTimeout(() => {
         props.setMessage("");
       }, 1000);

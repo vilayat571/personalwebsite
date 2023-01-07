@@ -74,15 +74,12 @@ export default memo(function SingleBlog() {
               src={blog.image}
               alt=""
             />
-            <div
-              className=" x
-            lJoin people who have read Vilayat's many articles on JavaScript, TypeScript, React, Next JS, and more.:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-2xl mt-6 text-[#a9adc1]"
-            >
+            <div className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-xl mt-6 text-[#a9adc1]">
               {blog.description}
             </div>
 
             <div
-              className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full  text-lg mt-4 text-white"
+              className=" xl:w-2/3 lg:w-2/3 md:w-full sm:w-full rounded-xl text-normal mt-4 text-white"
               dangerouslySetInnerHTML={{ __html: blog.body }}
             />
           </div>

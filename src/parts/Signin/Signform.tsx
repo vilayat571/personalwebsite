@@ -61,18 +61,18 @@ export default function Signform() {
           localStorage.setItem("name", data?.user_details.username);
           navigate("/");
         } else {
-          setMessage("un login");
+          setMessage("login details were incorrect.");
           setTimeout(() => {
             setMessage("");
           }, 1200);
         }
       } else if (form.password.length < 8) {
-        setMessage("password length must be longer than 8");
+        setMessage("password must be at least 8 characters.");
         setTimeout(() => {
           setMessage("");
         }, 1200);
       } else if (form.email.indexOf("@") === -1) {
-        setMessage("email must have @");
+        setMessage("required in email @");
         setTimeout(() => {
           setMessage("");
         }, 1200);

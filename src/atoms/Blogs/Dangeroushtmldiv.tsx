@@ -1,8 +1,8 @@
 export default function Dangeroushtmldiv(props: any) {
   return (
     <div
-      style={{ lineHeight: "44px" }}
-      className="line-clamp-2  text-left text-2xl w-full text-[#dfdcdc] "
+      style={{ lineHeight: "26px" }}
+      className="line-clamp-2 mt-1 text-left text-lg w-full text-[#dfdcdc] "
       dangerouslySetInnerHTML={{ __html: props.body }}
     />
   );

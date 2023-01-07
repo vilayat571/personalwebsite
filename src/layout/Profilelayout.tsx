@@ -8,18 +8,17 @@ export default function Profilelayout(props: ILayout) {
 
   const location = useLocation();
 
-    if (
-      localStorage.getItem("jwt") === null ||
-      localStorage.getItem("jwt") === undefined
-    ) {
-      location.pathname.indexOf('account')!==-1 && navigate("/");
-    } else if (
-      localStorage.getItem("jwt") !== null &&
-      localStorage.getItem("jwt") !== undefined
-    ) {
-      console.log("");
-    }
-
+  if (
+    localStorage.getItem("jwt") === null ||
+    localStorage.getItem("jwt") === undefined
+  ) {
+    location.pathname.indexOf("account") !== -1 && navigate("/");
+  } else if (
+    localStorage.getItem("jwt") !== null &&
+    localStorage.getItem("jwt") !== undefined
+  ) {
+    console.log("");
+  }
 
   return (
     <div
