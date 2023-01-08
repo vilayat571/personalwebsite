@@ -13,7 +13,7 @@ export default memo(function Pelementmain() {
       <Pelement
         text={"Learning and improving skills with the best software."}
         stil={
-          "text-[#a9adc1] lg:w-10/12 sm:w-full md:w-full xl:w-10/12 text-[34px] tracking-[1px] "
+          "text-[#a9adc1] lg:w-10/12 sm:w-full md:w-full xl:w-10/12 text-[32px] tracking-[1px] "
         }
       />
     </>

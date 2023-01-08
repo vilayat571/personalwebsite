@@ -13,7 +13,8 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    document.onkeydown = function (e) {
+    console.clear();
+   /*  document.onkeydown = function (e) {
       if (e.keyCode === 123) {
         return false;
       }
@@ -26,7 +27,7 @@ function App() {
       if (e.ctrlKey && e.keyCode === 85) {
         return false;
       }
-    };
+    }; */
   }, []);
 
   return (

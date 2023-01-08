@@ -41,11 +41,10 @@ export default function Signform() {
 
   const handleSubmit: ISubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    console.clear();
     try {
       const url = "https://api.vilayatsafarov.com/api/v1/account/login/";
       if (form.email.indexOf("@") !== -1 && form.password.length > 7) {
-        console.log(form.email, form.password);
         const res = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
