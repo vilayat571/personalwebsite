@@ -11,7 +11,7 @@ export default memo(function Pelementmain() {
         }
       />
       <Pelement
-        text={"Learning and improving skills with the best software."}
+        text={"Learning and improving skills with the best software quality."}
         stil={
           "text-[#a9adc1] lg:w-10/12 sm:w-full md:w-full xl:w-10/12 text-[32px] tracking-[1px] "
         }

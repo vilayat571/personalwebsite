@@ -70,7 +70,7 @@ export default function Signform() {
         setTimeout(() => {
           setMessage("");
         }, 1200);
-      } else if (form.email.indexOf("@") === -1) {
+      } else if (form.email.indexOf("@gmail.com") === -1) {
         setMessage("required in email @");
         setTimeout(() => {
           setMessage("");

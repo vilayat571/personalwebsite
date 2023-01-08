@@ -10,7 +10,7 @@ export default memo(function Tolinkmain() {
     <div className="flex text-lg flex-col items-start mt-6 w-full">
       <Link
         to={"/about"}
-        className="px-12 py-4 rounded-md bg-white mb-8 text-[#1f2028]"
+        className="px-12 py-4 rounded-[4px] bg-white mb-8 text-[#1f2028]"
       >
         Learn more
       </Link>

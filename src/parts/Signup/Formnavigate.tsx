@@ -44,7 +44,7 @@ export default memo(function Formnavigate(props: IFormnavigate) {
   const navigate = useNavigate();
   const handleSubmit: IFunc2 = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.email.indexOf("@") !== -1 && form.password.length > 7) {
+    if (form.email.indexOf("@gmail.com") !== -1 && form.password.length > 7) {
       dispatch(signUpUser(form));
       navigate("/signin");
     }
@@ -54,7 +54,7 @@ export default memo(function Formnavigate(props: IFormnavigate) {
         props.setMessage("");
       }, 1000);
     } else {
-      props.setMessage("required in email @");
+      props.setMessage("required in email @gmail.com");
       setTimeout(() => {
         props.setMessage("");
       }, 1000);
